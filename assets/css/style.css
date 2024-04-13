@@ -1,0 +1,52 @@
+:root {
+    --color1: #ffffff;
+    --font-title: ;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: aqua;
+}
+
+header {
+    height: 8vh;
+    background-color: var(--color1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+nav ul{
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+#content {
+    min-height: 92vh;
+    background-color: rgb(85, 163, 163);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: rgb(15, 43, 80);
+}
