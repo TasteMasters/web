@@ -1,47 +1,107 @@
 :root {
-    --color1: #ffffff;
-    --font-title: ;
+    --color1: #e76f51;
+    --color2: #f4a261;
+    --color3: #e9c46a;
+    --color4: #2a9d8f;
+    --color5: #264653;
+    --color6: #000000;
+    --color7: #ffffff;
+
+    --font-title: "Plus Jakarta Sans", sans-serif;
+    --font-text: "Open Sans", sans-serif;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--font-text);
+    font-size: 1rem;
 }
 
 body {
     width: 100vw;
     min-height: 100vh;
     background-color: aqua;
+    overflow-x: hidden;
 }
 
+/*===== header =================================================*/
+
 header {
-    height: 8vh;
-    background-color: var(--color1);
+    height: 10vh;
+    width: 100vw;
+    background-color: var(--color7);
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: var(--font-title);
 }
 
 nav {
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin: 0 1rem;
+    align-items: center;
+}
+
+nav div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    width: 10rem;
 }
 
 nav ul{
     display: flex;
-    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-right: 1rem;
     list-style: none;
+}
+
+nav ul li:hover:nth-child(-n+3) {
+    border-bottom: 2px solid var(--color1);
 }
 
 nav a {
     text-decoration: none;
+    font-weight: 500;
+    color: var(--color6);
+    line-height: 2rem;
+    width: fit-content;
+    height: fit-content;
 }
 
+nav ul li a:hover:nth-child(-n+3) {
+    color: var(--color1);
+    font-size: 1.05rem;
+}
+
+#login {
+    border: 2px solid black;
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+}
+
+#login:hover {
+    transition: .8s ease;
+    padding: .7rem 1.8rem;
+    color: var(--color7);
+    border: none;
+    background-color: var(--color1);
+    font-weight: 700;
+}
+
+/*====== main =================================================*/
 #content {
-    min-height: 92vh;
-    background-color: rgb(85, 163, 163);
+    min-height: 90vh;
+    background-color: var(--color7);
     display: flex;
     justify-content: center;
     align-items: center;
