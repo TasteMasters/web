@@ -3,18 +3,15 @@ export default function headerLogin() {
         <nav>
             <div>
                 <a href="/">
-                    <img src="" alt="logo">
+                    <img src="assets/img/logo.svg" alt="Logo TasteMaster">
                 </a>
             </div>
             <ul>
-                <li><a href="/receitas">Receitas</a></li>
+            <li><a href="/workshops">Workshops</a></li>
                 <li><a href="/desafios">Desafios</a></li>
-                <li><a href="/workshops">Workshops</a></li>
                 <li><a href="/comunidade">Comunidade</a></li>
+                <li><a href="/login" id="login">Login</a></li>
             </ul>
-            <div>
-                <a href="/login">entre</a>
-            </div>
         </nav>
     `
     const header = document.createElement('header');
