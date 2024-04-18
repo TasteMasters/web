@@ -2,7 +2,7 @@ import createTemplate from "./script.js";
 
 document.addEventListener('click', (e) => {
     const { target } = e;
-    if (!target.matches('nav a')) { // Verificar se elemento clicado não é um link
+    if (!target.matches('a')) {
         return;
     }
     e.preventDefault();
