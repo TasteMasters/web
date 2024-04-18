@@ -2,8 +2,9 @@ import headerLogin from "./components/header-login.js";
 import main from "./components/main.js";
 import footer from "./components/footer.js";
 import footerAnimation from "./animation/footer-animation.js";
+import menuMobile from "./animation/menu-mobile.js";
 
-export default function createTemplate(page, content) {
+export default async function createTemplate(page, content) {
     const body = document.querySelector('body');
 
     if (page === '/pages/login.html' || page === '/pages/registrar.html') {
@@ -22,7 +23,8 @@ export default function createTemplate(page, content) {
     body.appendChild(headerElement);
     body.appendChild(mainElement);
     body.appendChild(footerElement);
-
+    
     //Animations
     footerAnimation()
+    menuMobile();
 }
