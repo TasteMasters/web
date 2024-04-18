@@ -39,6 +39,11 @@ const urlRoutes = {
         path: '/pages/comunidade.html',
         title: '',
         description: ''
+    },
+    "/registrar": {
+        path: '/pages/registrar.html',
+        title: '',
+        description: ''
     }
 };
 

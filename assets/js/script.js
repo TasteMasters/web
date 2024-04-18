@@ -6,7 +6,7 @@ import footerAnimation from "./animation/footer-animation.js";
 export default function createTemplate(page, content) {
     const body = document.querySelector('body');
 
-    if (page === '/pages/login.html') {
+    if (page === '/pages/login.html' || page === '/pages/registrar.html') {
         body.innerHTML = '';
         const mainElement = main();
         mainElement.innerHTML = content;
