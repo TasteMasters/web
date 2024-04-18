@@ -56,7 +56,7 @@ header img {
     width: 10rem;
 }
 
-nav ul{
+#navigation {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,7 +65,7 @@ nav ul{
     list-style: none;
 }
 
-nav ul li:hover:nth-child(-n+3) {
+#navigation li:hover:nth-child(-n+3) {
     border-bottom: 2px solid var(--color1);
 }
 
@@ -79,7 +79,7 @@ nav a {
     transition: .5s;
 }
 
-nav ul li a:hover:nth-child(-n+3) {
+#navigation li a:hover:nth-child(-n+3) {
     color: var(--color1);
     font-size: 1.05rem;
 }
@@ -88,14 +88,73 @@ nav ul li a:hover:nth-child(-n+3) {
     border: 2px solid black;
     padding: .5rem 1.5rem;
     cursor: pointer;
-    transition: .8s ease;
+    transition: .8s;
 }
 
 #login:hover {
-    color: var(--color7);
+    color: var(--color7) !important;
     border: 2px solid var(--color1);
     background-color: var(--color1);
     font-weight: 700;
+}
+
+#mobile-menu-icon button { /* botão de menu mobile */
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#menu-open img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.menu-mobile { /* navegação mobile  */
+    display: none;
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    background-color: #e8e7e7;
+}
+
+.menu-mobile ul {
+    list-style: none;
+    border-radius: .5rem;
+}
+
+.menu-mobile ul li {
+    width: 100%;
+    padding: 1rem 2.5rem;
+    border-bottom: 1px solid var(--color5);
+    text-align: center;
+}
+
+.menu-mobile ul li a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: var(--color5);
+    font-weight: 600;
+    padding: 1rem;
+}
+
+
+/*----- Mobile -----*/
+@media (max-width: 850px) { 
+    .navigation-desktop {
+        display: none;
+    }
+    
+    .open {
+        display: block;
+    }
+
+    #mobile-menu-icon button { 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 /*====== Main =================================================*/
