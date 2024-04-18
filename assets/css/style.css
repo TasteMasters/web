@@ -76,6 +76,7 @@ nav a {
     line-height: 2rem;
     width: fit-content;
     height: fit-content;
+    transition: .5s;
 }
 
 nav ul li a:hover:nth-child(-n+3) {
@@ -87,13 +88,12 @@ nav ul li a:hover:nth-child(-n+3) {
     border: 2px solid black;
     padding: .5rem 1.5rem;
     cursor: pointer;
+    transition: .8s ease;
 }
 
 #login:hover {
-    transition: .8s ease;
-    padding: .7rem 1.8rem;
     color: var(--color7);
-    border: none;
+    border: 2px solid var(--color1);
     background-color: var(--color1);
     font-weight: 700;
 }
