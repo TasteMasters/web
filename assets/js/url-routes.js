@@ -44,6 +44,11 @@ const urlRoutes = {
         path: '/pages/registrar.html',
         title: '',
         description: ''
+    },
+    "/perfil": {
+        path: '/pages/perfil.html',
+        title: '',
+        description: ''
     }
 };
 
