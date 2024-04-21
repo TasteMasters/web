@@ -49,6 +49,11 @@ const urlRoutes = {
         path: '/pages/perfil.html',
         title: '',
         description: ''
+    },
+    "/dados-perfil": {
+        path: '/pages/dados-perfil.html',
+        title: '',
+        description: ''
     }
 };
 
