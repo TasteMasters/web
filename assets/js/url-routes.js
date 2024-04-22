@@ -66,3 +66,5 @@ const urlLocationHandler = async () => {
 window.addEventListener('popstate', urlLocationHandler);
 
 urlLocationHandler();
+
+export { urlLocationHandler };
