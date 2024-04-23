@@ -875,3 +875,160 @@ p#direitos-tastemaster {
     display: flex;
     gap: 1%;
 }
+
+/* =============challenges=============== */
+
+#challenges-container{
+    margin-top: 10vh;
+    width: 100vw;
+}
+
+#challenges-container #banner-container{
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    max-width: 100%;
+    height: 20vh;
+    background-image: url("../img/challenges-banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#challenges-container #banner-container h1{
+    color: #FFF;
+    width: 40%;
+    min-width: 450px;
+    font-size: 1.6vw;
+}
+
+#challenges-container #challenges-content{
+    display: flex;
+    padding: 3% 10%;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#challenges-container #challenges, #my-challenges{
+    box-sizing: border-box;
+    padding: 2%;
+}
+
+#challenges-container #challenges{
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+}
+
+#challenges-container .challenge-card{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 30%;
+    min-width: 250px;
+    margin: 10px;
+}
+
+#challenges-container .challenge-card img{
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+}
+
+#challenges-container .challenge-card #tags-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3%;
+}
+
+#challenges-container .challenge-card .tag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 3%;
+    border-radius: 50px;
+    min-width: 50px;
+    min-height: 23px;
+    font-size: .85vw;
+    font-weight: bold;
+    border: 2px solid #000;
+}
+
+#challenges-container .challenge-card #time-container{
+    display: flex;
+    gap: 3%;
+    color: #264653;
+    font-weight: 200;
+}
+
+#challenges-container .challenge-card #time-container img{
+    width: 20px;
+}
+
+#challenges-container .challenge-card #start-challenge{
+    width: 70%;
+    padding: 4% 12%;
+    background-color: #F0613D;
+    font-weight: bold;
+    font-size: 1vw;
+    border: none;
+    color: #fff;
+
+    &:hover{
+        filter: brightness(.9);
+        cursor: pointer;
+    }
+}
+
+#challenges-container #my-challenges{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 30%;
+}
+
+#challenges-container .challenge-started-card{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    padding: 5% 8%;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+}
+
+#challenges-container .challenge-started-card .challenge-started-tags-container{
+    display: flex;
+    gap: 10px;
+}
+
+#challenges-container .challenge-started-tags-container .challenge-started-tag{
+    color: #5F5F81;
+    font-weight: 500;
+}
+
+#challenges-container .challenge-started-card p{
+    font-weight: 100;
+    font-size: .9vw;
+}
+
+#challenges-container .challenge-started-card .challenge-started-date{
+    font-weight: bold;
+}
+
+#challenges-container .challenge-started-options{
+    display: flex;
+    gap: 8%;
+}
+
+#challenges-container .challenge-started-options a{
+    color: #3864FF;
+    font-weight: 500;
+}
+
+#challenges-container .challenge-started-options #get-out{
+    color: #FF3838;
+}
