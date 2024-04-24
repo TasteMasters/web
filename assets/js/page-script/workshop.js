@@ -2,6 +2,7 @@ import { getAllWorkshops } from "../../../mocks/mock-workshop.js";
 import { getUser } from "../../../mocks/user.js";
 import buttonCreateWs from "../components/button-ws-created.js";
 import createCardWorkshop from "../components/card-workshop.js";
+import addModalCreateWorkshop from "../components/modal-create-workshop.js";
 import createSectionMyWorkshop from "../components/my-workshops-section.js";
 import createSectionStartedWorkshop from "../components/started-workshops-section.js";
 
@@ -29,7 +30,15 @@ export default async function workshop(){
         sectionWorkshopsCreated.appendChild(card);
     });    
 
+    // Button create workshop
     const button = buttonCreateWs();
+    button.addEventListener('click', ()=> {
+        const modalCreateWS = addModalCreateWorkshop('create');
+
+        const body = document.querySelector('body');
+        body.appendChild(modalCreateWS);
+    });
+    
 
     const sectionMyWorkshops = document.getElementById("my-workshops");
     sectionMyWorkshops.appendChild(button);

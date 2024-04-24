@@ -32,7 +32,7 @@ function addModalDelete(id) {
         
         const idWorkshop = Number.parseInt(id);
         const iddd = 10 // --> ERROR
-        const result = await deleteWorkshop(iddd);
+        const result = await deleteWorkshop(idWorkshop);
         if (result) {
             message.innerText = 'Workshop deletado com sucesso!';
 

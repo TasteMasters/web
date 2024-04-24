@@ -846,9 +846,10 @@ p#direitos-tastemaster {
 /* Efeito modal (Deletar workshop) */
 #effectModal {
   position: fixed;
+  overflow-y: scroll;
   z-index: 100;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   top: 0;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
@@ -857,9 +858,11 @@ p#direitos-tastemaster {
 }
 
 #modal-content {
+  position: absolute;
   padding: 2rem;
   background: var(--color7);
   border-radius: 1rem;
+  overflow-y: scroll;
 }
 
 #modal-content p {
@@ -977,17 +980,303 @@ p#direitos-tastemaster {
   width: fit-content;
   text-decoration: none;
   padding: 0.5rem 2rem;
-  background-color: var(--color2);
-  color: var(--color6);
+  background-color: var(--color1);
+  color: var(--color7);
   font-size: .8rem;
   transition: .5s;
 }
 
 .card-workshop a:hover {
   background: var(--color5);
-  color: var(--color7);
+  font-weight: bold;
 }
 
 .card-workshop p {
   text-align: justify;
+}
+
+/*------- Efeito modal (criar workshop) -------------*/
+#modal-header-content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+#modal-header-content h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color5);
+  font-family: var(--font-title);
+}
+
+#modal-header-content img {
+  width: 2rem;
+  cursor: pointer;
+  transition: .5s;
+}
+
+#modal-header-content img:hover {
+  transform: scale(1.1);
+}
+
+#form-modal {
+  display: grid;
+  grid-template-areas:
+    "fieldset-overview fieldset-content fieldset-content"
+    "div-button div-button div-button";
+  gap: 1rem;
+  justify-content: center;
+}
+
+#fieldset-overview {
+  height: fit-content;
+  grid-area: fieldset-overview;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#fieldset-overview input {
+  font-size: .8rem;
+  padding: .5rem;
+  border-radius: 1rem;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, .4);
+  transition: .5s;
+  outline: none;
+}
+
+#fieldset-overview input:hover {
+  border: 1px solid var(--color1);
+}
+
+#fieldset-overview input:focus {
+  border: 1px solid var(--color1);
+}
+
+.inputs-label {
+  margin-left: .2rem;
+  border: 1px solid rgba(0, 0, 0, .3);
+}
+
+#fieldset-overview textarea {
+  font-size: .8rem;
+  padding: .5rem;
+  border-radius: 1rem 1rem 0 1rem;
+  outline: none;
+}
+
+#fieldset-overview textarea:hover {
+  border: 1px solid var(--color1);
+}
+
+#fieldset-overview textarea:focus {
+  border: 1px solid var(--color1);
+}
+
+#difficulty-div {
+  margin: 1rem 0 0 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.label-input-radio {
+  display: flex;
+  gap: 7px;
+  color: var(--color5);
+  flex-direction: row-reverse;
+}
+
+input[type="file"] {
+  display: block;
+  margin: .5rem;
+  border: 1.5px dashed var(--color5) !important;
+  text-align: center;
+}
+
+input[type="file"]::placeholder {
+  content: "Selecionar imagem" !important;
+}
+
+/* Botão "Chose file" */
+#customInputFile::-webkit-file-upload-button {
+  display: none;
+}
+
+/*========= Fieldset Conteúdo ==============*/
+#fieldset-content {
+  grid-area: fieldset-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#fieldset-content p {
+  font-size: .9rem;
+  margin-bottom: .5rem;
+  font-family: var(--font-text);
+  font-weight: 600;
+}
+
+#fieldset-content div {
+  display: flex;
+  flex-direction: column;
+}
+
+#div-ingredient-inputs {
+  width: 100%;
+}
+
+#div-ingredient {
+  display: flex;
+  flex-direction: row !important;
+  width: 100%;
+  margin-bottom: .5rem;
+}
+
+#div-ingredient input {
+  width: 100%;
+  border-radius: 1rem;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, .3);
+  padding: .2rem 1rem;
+  font-size: .8rem;
+}
+
+#div-ingredient button {
+  margin-left: .2rem;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: var(--color7);
+  background-color: rgb(240, 106, 106);
+  cursor: pointer;
+  padding: .5rem;
+  transform: scale(.7);
+  border-radius: .5rem;
+  outline: none;
+  border: none;
+}
+
+.button-add {
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: .5rem;
+  background: var(--color4);
+  color: var(--color7);
+  cursor: pointer;
+  font-size: .8rem;
+  font-weight: bold;
+  transition: .5s;
+}
+
+.button-add:hover {
+  background: #227b71;
+  color: var(--color7);
+}
+
+/* ------------TOPICS---------------*/
+#div-topic-inputs {
+  width: 25vw;
+}
+
+#div-topic-inputs hr {
+  margin-top: 1rem;
+  height: 5px;
+  background: var(--color5);
+}
+
+#div-topic-inputs p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--color1);
+}
+
+#div-topic-inputs label {
+  color: var(--color5);
+}
+
+#div-topic-inputs input{
+  display: block;
+  margin-bottom: .5rem;
+  width: 100%;
+  font-size: .8rem;
+  padding: .3rem 1rem;
+  border-radius: .5rem;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, .3);
+}
+
+#div-topic-inputs button{
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: .5rem;
+  background: rgb(240, 106, 106);
+  cursor: pointer;
+  color: var(--color4);
+  font-size: .8rem;
+  font-weight: bold;
+  transition: .5s;
+}
+
+#div-topic-inputs button{
+  color: var(--color7);
+}
+
+#fieldset-content button {
+  width: fit-content;
+}
+
+/*----------- BUTTON SUBMIT ---------*/
+#div-button-submit {
+  grid-area: div-button;
+  display: flex;
+  justify-content: center;
+}
+
+#button-submit {
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--color7);
+  background: var(--color5);
+  outline: none;
+  border-radius: .5rem;
+  border: none;
+  cursor: pointer;
+  transition: .5s;
+}
+
+#button-submit:hover {
+  background: var(--color1);
+  transform: scale(1.05);
+}
+
+#form-modal fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .1);
+  border: 1px solid var(--color5);
+  border-radius: 1rem;
+  transition: .5s;
+}
+
+#form-modal fieldset:hover {
+  border: 1.5px solid var(--color1);
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, .3);
+  transform: scale(1.02);
+}
+
+#form-modal fieldset legend {
+  padding: 0 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color5);
+}
+
+#form-modal fieldset label {
+  font-size: .8rem;
+  font-weight: 600;
 }
