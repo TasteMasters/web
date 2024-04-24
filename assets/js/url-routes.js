@@ -59,6 +59,11 @@ const urlRoutes = {
         path: '/pages/challenges.html',
         title: '',
         description: ''
+    },
+    "/receita": {
+        path: '/pages/receita.html',
+        title: '',
+        description: ''
     }
 };
 

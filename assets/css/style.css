@@ -1032,3 +1032,143 @@ p#direitos-tastemaster {
 #challenges-container .challenge-started-options #get-out{
     color: #FF3838;
 }
+
+/* =================== recipe ==================== */
+
+#recipe-container{
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#recipe-container #recipe-banner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80vh;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../img/recipe-banner.png");
+}
+
+#recipe-container #recipe-banner h1{
+    font-size: 3vw;
+    color: #FFF;
+}
+
+#recipe-container #recipe-content{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 2% 0;
+}
+
+#recipe-container #recipe-info{
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+#recipe-container #recipe-info span{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#recipe-container #recipe-info .info-icon{
+    height: 35px;
+}
+
+#recipe-container #recipe-info span h5{
+    display: flex;
+    font-size: 1vw;
+}
+
+#recipe-container #recipe-content p{
+    font-size: max(1.1vw, 16px);
+}
+
+#recipe-container #recipe-content ol{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#recipe-container #recipe-content ol li{
+    font-size: max(1.05vw, 14px);
+}
+
+#recipe-container #ingredients{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#recipe-container .ingredient{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 40px;
+}
+
+#recipe-container .ingredient .ingredient-icon{
+    height: 100%;
+}
+
+#recipe-container .ingredient h4{
+    font-size: 1.08vw;
+    font-weight: 500;
+}
+
+#recipe-container #upload-button{
+    display: none;
+}
+
+#recipe-container #recipe-content h2{
+    font-size: 1.3vw;
+}
+
+#recipe-container #recipe-content label{
+    width: 260px;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 30px;
+    border: 3px dashed #F0613D;
+    cursor: pointer;
+    background-color: #FFF;
+    transition: .2s ease-in-out;
+
+    &:hover{
+        filter: brightness(.95);
+    }
+}
+
+#recipe-container #recipe-content label img{
+    height: 20px;
+}
+
+#recipe-container #recipe-content label img{
+    height: 20px;
+}
+
+#recipe-container #submit-challenge{
+    width: 200px;
+    padding: 15px 30px;
+    border: none;
+    background-color: rgb(49, 210, 124);
+    font-size: 1vw;
+    color: #FFF;
+    font-weight: bold;
+    transition: .3s ease-in-out;
+
+    &:hover{
+        scale: 1.05;
+        cursor: pointer;
+    }
+}
