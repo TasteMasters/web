@@ -10,7 +10,18 @@ export default async function createCardWorkshop(data, user_workshops_started) {
     h3.innerText = `${data.title}`;
 
     const pDescription = document.createElement('p');
-    pDescription.innerText = data.description;
+    const fullDescription = data.description;
+    const wordLimit = 20;
+    const words = fullDescription.split(" ");
+
+    let formattedDescription;
+    if (words.length <= wordLimit) {
+        formattedDescription = fullDescription;
+    } else {
+        formattedDescription = words.slice(0, wordLimit).join(" ") + "...";
+    }
+    pDescription.innerText = formattedDescription;
+
 
     const divDate = document.createElement('div');
     divDate.id = 'date-workshop';

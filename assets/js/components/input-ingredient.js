@@ -1,4 +1,4 @@
-export default function addIngredientInput(container) {
+export default function addIngredientInput(container, value) {
     const div = document.createElement('div');
     div.id = 'div-ingredient';
 
@@ -6,6 +6,9 @@ export default function addIngredientInput(container) {
     ingredientInput.type = 'text';
     ingredientInput.required = true;
     ingredientInput.name = 'ingredient';
+    if (value !== null) {
+        ingredientInput.value = value;
+    }
 
     const removeButton = document.createElement('button');
     removeButton.textContent = 'X';

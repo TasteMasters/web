@@ -921,6 +921,7 @@ p#direitos-tastemaster {
 #show-workshops-cards {
   width: 70%;
   display: flex;
+  height: fit-content;
   flex-wrap: wrap;
   gap: 2rem;
   margin-top: 5rem;
@@ -928,7 +929,6 @@ p#direitos-tastemaster {
 
 .card-workshop {
   width: 30%;
-  height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

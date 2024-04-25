@@ -1,5 +1,7 @@
 import { getWorkshop } from "../../../mocks/mock-workshop.js";
+import { getUser } from "../../../mocks/user.js";
 import { addModalDelete } from "./modal-delete-ws.js";
+import workshopInformation from "./workshop-information.js";
 
 export default function createSectionMyWorkshop(id) {
   const data = getWorkshop(id);
@@ -29,6 +31,12 @@ export default function createSectionMyWorkshop(id) {
   editIcon.classList.add("EditWs");
   editIcon.dataset.idWorkshop = id;
   editIcon.alt = "Edit workshop";
+  editIcon.addEventListener('click', async ()=> {
+    const user = await getUser(1);
+    const modalEditWS = await workshopInformation('edit', user, Number(editIcon.dataset.idWorkshop));
+    const body = document.querySelector('body');
+    body.appendChild(modalEditWS);
+  });
 
   const moreIcon = document.createElement("img");
   moreIcon.src = "assets/img/ws-more.svg";

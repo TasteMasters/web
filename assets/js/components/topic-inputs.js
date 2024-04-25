@@ -1,4 +1,4 @@
-export default function addTopicInputs(container) {
+export default function addTopicInputs(container, topicData) {
     const hr = document.createElement('hr');
     
     const p = document.createElement('p');
@@ -10,6 +10,9 @@ export default function addTopicInputs(container) {
     topicTitleInput.type = 'text';
     topicTitleInput.name = 'topicTitle';
     topicTitleInput.required = true;
+    if (topicData !== null && topicData !== undefined) {
+        topicTitleInput.value = topicData.topic_title;
+    }
     topicTitleLabel.appendChild(topicTitleInput);
 
     const topicDurationLabel = document.createElement('label');
@@ -17,7 +20,7 @@ export default function addTopicInputs(container) {
     const topicDurationInput = document.createElement('input');
     topicDurationInput.required = true;
     topicDurationInput.type = 'number'; 
-    topicDurationInput.name = 'topicDuration'; 
+    topicDurationInput.name = 'topicDuration';
     topicDurationLabel.appendChild(topicDurationInput);
 
     const topicDescriptionLabel = document.createElement('label');
@@ -26,6 +29,9 @@ export default function addTopicInputs(container) {
     topicDescriptionInput.required = true;
     topicDescriptionInput.type = 'text';
     topicDescriptionInput.name = 'topicDescription';
+    if (topicData !== null && topicData !== undefined) {
+        topicDescriptionInput.value = topicData.topic_description;
+    }
     topicDescriptionLabel.appendChild(topicDescriptionInput);
 
     const topicVideoLabel = document.createElement('label');
@@ -33,6 +39,9 @@ export default function addTopicInputs(container) {
     const topicVideoInput = document.createElement('input');
     topicVideoInput.type = 'text';
     topicVideoInput.name = 'topicVideo';
+    if (topicData !== null && topicData !== undefined) {
+        topicVideoInput.value = topicData.video_link;
+    }
     topicVideoLabel.appendChild(topicVideoInput);
 
     const removeTopicButton = document.createElement('button');
@@ -45,6 +54,7 @@ export default function addTopicInputs(container) {
         topicDescriptionLabel.parentNode.removeChild(topicDescriptionLabel);
         topicVideoLabel.parentNode.removeChild(topicVideoLabel);
         removeTopicButton.parentNode.removeChild(removeTopicButton);
+        topicDurationLabel.parentNode.removeChild(topicDurationLabel);
     });
 
     container.appendChild(hr);

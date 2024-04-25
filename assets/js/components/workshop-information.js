@@ -1,8 +1,11 @@
+import { createWorkshop, getWorkshop, updateWorkshop } from "../../../mocks/mock-workshop.js";
+import { updateUser } from "../../../mocks/user.js";
+import { urlLocationHandler } from "../url-routes.js";
 import addIngredientInput from "./input-ingredient.js";
 import createRadioButton from "./input-radio.js";
 import addTopicInputs from "./topic-inputs.js";
 
-export default function addModalCreateWorkshop(modalType) {
+export default async function workshopInformation(modalType, user, idWorkshop) {
     const effectModal = document.createElement('div');
     effectModal.id = 'effectModal';
 
@@ -16,6 +19,13 @@ export default function addModalCreateWorkshop(modalType) {
     const h1 = document.createElement('h1');
     h1.innerText = 'Inserir informações do workshop';
     divHeaderContent.appendChild(h1);
+
+    // Modal de editar: Buscar informações do workshop
+    let workshop; 
+    if (modalType === 'edit') {
+        workshop = await getWorkshop(idWorkshop);
+        console.log(workshop);
+    }
 
     const iconCloseModal = document.createElement('img');
     iconCloseModal.id = 'icon-close-modal';
@@ -43,7 +53,17 @@ export default function addModalCreateWorkshop(modalType) {
             }
         }
 
-        await sendFormData(formValues);
+        formValues['image'] = 'mocks/img/image-card.svg';
+
+        // Função para enviar os dados
+        if (modalType === 'create') {
+            await sendFormDataWorkshop(modalType, formValues, user);
+        }
+        if (modalType === 'edit') {
+            await sendFormDataWorkshop(modalType, formValues, '', idWorkshop);
+        }
+
+        urlLocationHandler();
     });
 
     // Fieldset Visão Geral
@@ -58,12 +78,18 @@ export default function addModalCreateWorkshop(modalType) {
     titleInput.type = 'text';
     titleInput.placeholder = 'Título';
     titleInput.name = 'title';
+    if (modalType === 'edit') {
+        titleInput.value = workshop.title;
+    }
     fieldsetOverview.appendChild(titleInput);
 
     // textArea Descrição
     const descriptionInput = document.createElement('textarea');
     descriptionInput.placeholder = 'Descrição...'
     descriptionInput.name = 'description';
+    if (modalType === 'edit') {
+        descriptionInput.value = workshop.description;
+    }
     fieldsetOverview.appendChild(descriptionInput);
 
     // Input Categoria
@@ -71,6 +97,9 @@ export default function addModalCreateWorkshop(modalType) {
     categoryInput.type = 'text';
     categoryInput.placeholder = 'Categoria (exemplo: Carnes, Massas...)'
     categoryInput.name = 'category';
+    if (modalType === 'edit') {
+        categoryInput.value = workshop.category;
+    }
     fieldsetOverview.appendChild(categoryInput);
 
     // Input Data de Início
@@ -79,21 +108,56 @@ export default function addModalCreateWorkshop(modalType) {
     const startDateInput = document.createElement('input');
     startDateInput.className = 'inputs-label';
     startDateInput.type = 'date';
-    startDateInput.name = 'startDate';
+    startDateInput.name = 'start_date';
+    if (modalType === 'edit') {
+        startDateInput.value = workshop.start_date;
+    }
     startDateLabel.appendChild(startDateInput);
 
     // Input Dificuldade
     const difficultyLabel = document.createElement('label');
     difficultyLabel.textContent = 'Dificuldade:';
-    const easyRadio = createRadioButton('difficulty', 'Fácil');
-    const intermediateRadio = createRadioButton('difficulty', 'Intermediário');
-    const hardRadio = createRadioButton('difficulty', 'Difícil');
-    const difficultyDiv = document.createElement('div');
-    difficultyDiv.id = 'difficulty-div';
-    difficultyDiv.appendChild(easyRadio);
-    difficultyDiv.appendChild(intermediateRadio);
-    difficultyDiv.appendChild(hardRadio);
-    difficultyLabel.appendChild(difficultyDiv);
+    if (modalType === 'create') {
+        const easyRadio = createRadioButton('difficulty', 'Fácil');
+        const intermediateRadio = createRadioButton('difficulty', 'Intermediário');
+        const hardRadio = createRadioButton('difficulty', 'Difícil');
+        const difficultyDiv = document.createElement('div');
+        difficultyDiv.id = 'difficulty-div';
+        difficultyDiv.appendChild(easyRadio);
+        difficultyDiv.appendChild(intermediateRadio);
+        difficultyDiv.appendChild(hardRadio);
+        difficultyLabel.appendChild(difficultyDiv);
+    }
+    if (modalType === 'edit') {
+        let easyRadio;
+        let intermediateRadio;
+        let hardRadio;
+
+        const difficulty = workshop.difficulty;
+        if(difficulty === 'Fácil') {
+            easyRadio = await createRadioButton('difficulty', 'Fácil', true);
+            intermediateRadio = await createRadioButton('difficulty', 'Intermediário', false);
+            hardRadio = await createRadioButton('difficulty', 'Difícil', false);
+        }
+        if(difficulty === 'Intermediário') {
+            easyRadio = await createRadioButton('difficulty', 'Fácil', false);
+            intermediateRadio = await createRadioButton('difficulty', 'Intermediário', true);
+            hardRadio = await createRadioButton('difficulty', 'Difícil', false);
+        }
+        if(difficulty === 'Difícil') {
+            easyRadio = await createRadioButton('difficulty', 'Fácil', false);
+            intermediateRadio = await createRadioButton('difficulty', 'Intermediário', false);
+            hardRadio = await createRadioButton('difficulty', 'Difícil', true);
+        }
+
+        
+        const difficultyDiv = document.createElement('div');
+        difficultyDiv.id = 'difficulty-div';
+        difficultyDiv.appendChild(easyRadio);
+        difficultyDiv.appendChild(intermediateRadio);
+        difficultyDiv.appendChild(hardRadio);
+        difficultyLabel.appendChild(difficultyDiv);
+    }
 
     // Input Imagem
     const imageLabel = document.createElement('label');
@@ -125,8 +189,16 @@ export default function addModalCreateWorkshop(modalType) {
     divIngredient.appendChild(pIngredient);
     fieldsetContent.appendChild(divIngredient);
 
-    // Adicionar pelo menos um campo de input de ingrediente inicialmente
-    addIngredientInput(divIngredient);
+    // Adicionar campos de input
+    if (modalType === 'create') {
+        addIngredientInput(divIngredient, null);
+    }
+    if (modalType === 'edit') {
+        const quantityIngredients = workshop.ingredients.length;
+        for (let i = 0; i < quantityIngredients; i++) {
+            addIngredientInput(divIngredient, workshop.ingredients[i]);
+        }
+    }
 
     // Botão "Adicionar Ingrediente"
     const addIngredientButton = document.createElement('button');
@@ -150,8 +222,16 @@ export default function addModalCreateWorkshop(modalType) {
     topic.id = 'div-topic-inputs';
     divTopics.appendChild(topic);
 
-    // Adicionar pelo menos um tópico inicialmente
-    addTopicInputs(topic);
+    // Adicionar campos de input
+    if (modalType === 'create') {
+        await addTopicInputs(topic, null);
+    }
+    if (modalType === 'edit') {
+        const quantityTopics = workshop.topics.length;
+        for (let i = 0; i < quantityTopics; i++) {
+            await addTopicInputs(topic, workshop.topics[0]);
+        }
+    }
 
     // Botão "Adicionar Tópico"
     const addTopicButton = document.createElement('button');
@@ -170,7 +250,12 @@ export default function addModalCreateWorkshop(modalType) {
     const submitButton = document.createElement('button');
     submitButton.type = 'submit';
     submitButton.id = 'button-submit';
-    submitButton.textContent = 'Criar workshop';
+    if (modalType === 'create') {
+        submitButton.textContent = 'Criar workshop';
+    }
+    if (modalType === 'edit') {
+        submitButton.textContent = 'Atualizar workshop';
+    }
     const divButtonSibmit = document.createElement('div');
     divButtonSibmit.appendChild(submitButton);
     divButtonSibmit.id = 'div-button-submit';
@@ -199,8 +284,8 @@ export default function addModalCreateWorkshop(modalType) {
     return effectModal;
 }
 
-async function sendFormData(formValuesOverview) {
-    let data = formValuesOverview;
+async function sendFormDataWorkshop(modalType, formValuesOverview, user, id) {
+    let newWorkshop = formValuesOverview;
     
     // ingredients
     let ingredients = []
@@ -208,10 +293,78 @@ async function sendFormData(formValuesOverview) {
     inputsIngredients.forEach(input => {
         ingredients.push(input.value);
     })
-    data['ingredients'] = ingredients;
-    console.log(data);
+    newWorkshop['ingredients'] = ingredients;
 
     // topics
+    let titles = [];
+    const inputsTitle = document.getElementsByName('topicTitle');
+    inputsTitle.forEach(input => {
+        titles.push(input.value);
+    })
+
+    let duractions = [];
+    const inputsDuration = document.getElementsByName('topicDuration');
+    inputsDuration.forEach(input => {
+        const minutes = Number(input.value)%60;
+        const hours = (Number(input.value) - minutes)/60;
+
+        if (hours < 1) {
+            const result = `${minutes} minutos`;
+            duractions.push(result);
+        }
+
+        if (hours === 1) {
+            const result = `${hours} hora e ${minutes} minutos`;
+            duractions.push(result);
+        }
+
+        if (hours > 1) {
+            const result = `${hours} horas e ${minutes} minutos`;
+            duractions.push(result);
+        }
+    })
+
+    let descriptions = [];
+    const inputsDescription = document.getElementsByName('topicDescription');
+    inputsDescription.forEach(input => {
+        descriptions.push(input.value);
+    })
+
+    let links = [];
+    const inputsVideo = document.getElementsByName('topicVideo');
+    inputsVideo.forEach(input => {
+        links.push(input.value);
+    })
+
     let topics = [];
-    let newTopic = {}
+    for (let i = 0; i < titles.length; i++) {
+        const newTopic = {
+            topic_title: titles[i],
+            estimated_time: duractions[i],
+            topic_description: descriptions[i],
+            video_link: links[i],
+            completed: false
+        };
+
+        topics.push(newTopic);
+    }
+    
+    newWorkshop['topics'] = topics;
+
+    // Requisição:
+    if (modalType === 'create') {
+        // Criando workshop:
+        const id = await createWorkshop(newWorkshop);
+        
+        // atualizar ws criados pelo usuário
+        const createdWorkshopsUser = user.created_workshops;
+        createdWorkshopsUser.push(id);
+        user['created_workshops'] = createdWorkshopsUser;
+        const userUpdate = updateUser(user.id, user);
+    }
+    if (modalType === 'edit') {
+        // Atualizar workshop:
+        console.log(newWorkshop);
+        await updateWorkshop(id, newWorkshop);
+    }
 }

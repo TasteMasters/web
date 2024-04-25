@@ -2,7 +2,7 @@ import { getAllWorkshops } from "../../../mocks/mock-workshop.js";
 import { getUser } from "../../../mocks/user.js";
 import buttonCreateWs from "../components/button-ws-created.js";
 import createCardWorkshop from "../components/card-workshop.js";
-import addModalCreateWorkshop from "../components/modal-create-workshop.js";
+import workshopInformation from "../components/workshop-information.js";
 import createSectionMyWorkshop from "../components/my-workshops-section.js";
 import createSectionStartedWorkshop from "../components/started-workshops-section.js";
 
@@ -32,8 +32,8 @@ export default async function workshop(){
 
     // Button create workshop
     const button = buttonCreateWs();
-    button.addEventListener('click', ()=> {
-        const modalCreateWS = addModalCreateWorkshop('create');
+    button.addEventListener('click', async ()=> {
+        const modalCreateWS = await workshopInformation('create', user);
 
         const body = document.querySelector('body');
         body.appendChild(modalCreateWS);
