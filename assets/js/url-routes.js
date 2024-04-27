@@ -47,6 +47,24 @@ const urlRoutes = {
     },
     "/show-workshop": {
         path: '/pages/show-workshop.html',
+    },
+    "/perfil": {
+        path: '/pages/perfil.html',
+        title: '',
+        description: ''
+    },
+    "/dados-perfil": {
+        path: '/pages/dados-perfil.html',
+        title: '',
+        description: ''
+    },
+    "/desafios": {
+        path: '/pages/challenges.html',
+        title: '',
+        description: ''
+    },
+    "/receita": {
+        path: '/pages/receita.html',
         title: '',
         description: ''
     }

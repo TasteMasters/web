@@ -10,6 +10,7 @@ export default function headerLogin() {
                 <li class="navigation-desktop"><a href="/workshops">Workshops</a></li>
                 <li class="navigation-desktop"><a href="/desafios">Desafios</a></li>
                 <li class="navigation-desktop"><a href="/comunidade">Comunidade</a></li>
+                <li class="navigation-desktop"><a href="/perfil">perfil</a></li>
                 <li class="navigation-desktop"><a href="/login" id="login">Login</a></li>
                 <li id="mobile-menu-icon">
                     <button id="menu-open">
