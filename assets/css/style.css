@@ -1,615 +1,1489 @@
 :root {
-    --color1: #e76f51;
-    --color2: #f4a261;
-    --color3: #e9c46a;
-    --color4: #2a9d8f;
-    --color5: #264653;
-    --color6: #000000;
-    --color7: #ffffff;
+  --color1: #e76f51;
+  --color2: #f4a261;
+  --color3: #e9c46a;
+  --color4: #2a9d8f;
+  --color5: #264653;
+  --color6: #000000;
+  --color7: #ffffff;
 
-    --font-title: "Plus Jakarta Sans", sans-serif;
-    --font-text: "Open Sans", sans-serif;
+  --font-title: "Plus Jakarta Sans", sans-serif;
+  --font-text: "Open Sans", sans-serif;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: var(--font-text);
-    font-size: 16px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-text);
+  font-size: 16px;
 }
 
 body {
-    width: 100vw;
-    min-height: 100vh;
-    overflow-x: hidden;
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /*===== Header =================================================*/
 header {
-    height: 10vh;
-    width: 100vw;
-    background-color: var(--color7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--font-title);
-    position: fixed;
-    z-index: 100;
+  height: 10vh;
+  width: 100vw;
+  background-color: var(--color7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-title);
+  position: fixed;
+  z-index: 100;
 }
 
 nav {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    margin: 0 1rem;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 0 1rem;
+  align-items: center;
 }
 
 nav div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header img {
-    width: 10rem;
+  width: 10rem;
 }
 
 #navigation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    margin-right: 1rem;
-    list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-right: 1rem;
+  list-style: none;
 }
 
-#navigation li:hover:nth-child(-n+3) {
-    border-bottom: 2px solid var(--color1);
+#navigation li:hover:nth-child(-n + 3) {
+  border-bottom: 2px solid var(--color1);
 }
 
 nav a {
-    text-decoration: none;
-    font-weight: 500;
-    color: var(--color6);
-    line-height: 2rem;
-    width: fit-content;
-    height: fit-content;
-    transition: .5s;
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--color6);
+  line-height: 2rem;
+  width: fit-content;
+  height: fit-content;
+  transition: 0.5s;
 }
 
-#navigation li a:hover:nth-child(-n+3) {
-    color: var(--color1);
-    font-size: 1.05rem;
+#navigation li a:hover:nth-child(-n + 3) {
+  color: var(--color1);
+  font-size: 1.05rem;
 }
 
 #login {
-    border: 2px solid black;
-    padding: .5rem 1.5rem;
-    cursor: pointer;
-    transition: .8s;
+  border: 2px solid black;
+  padding: 0.5rem 1.5rem;
+  cursor: pointer;
+  transition: 0.8s;
 }
 
 #login:hover {
-    color: var(--color7) !important;
-    border: 2px solid var(--color1);
-    background-color: var(--color1);
-    font-weight: 700;
+  color: var(--color7) !important;
+  border: 2px solid var(--color1);
+  background-color: var(--color1);
+  font-weight: 700;
 }
 
-#mobile-menu-icon button { /* botão de menu mobile */
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
+#mobile-menu-icon button {
+  /* botão de menu mobile */
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 #menu-open img {
-    width: 2rem;
-    height: 2rem;
+  width: 2rem;
+  height: 2rem;
 }
 
-.menu-mobile { /* navegação mobile  */
-    display: none;
-    position: absolute;
-    top: 10vh;
-    right: 0;
-    background-color: #e8e7e7;
+.menu-mobile {
+  /* navegação mobile  */
+  display: none;
+  position: absolute;
+  top: 10vh;
+  right: 0;
+  background-color: #e8e7e7;
 }
 
 .menu-mobile ul {
-    list-style: none;
-    border-radius: .5rem;
+  list-style: none;
+  border-radius: 0.5rem;
 }
 
 .menu-mobile ul li {
-    width: 100%;
-    padding: 1rem 2.5rem;
-    border-bottom: 1px solid var(--color5);
-    text-align: center;
+  width: 100%;
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid var(--color5);
+  text-align: center;
 }
 
 .menu-mobile ul li a {
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-    color: var(--color5);
-    font-weight: 600;
-    padding: 1rem;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: var(--color5);
+  font-weight: 600;
+  padding: 1rem;
 }
 
-
 /*----- Mobile -----*/
-@media (max-width: 850px) { 
-    .navigation-desktop {
-        display: none;
-    }
-    
-    .open {
-        display: block;
-    }
+@media (max-width: 850px) {
+  .navigation-desktop {
+    display: none;
+  }
 
-    #mobile-menu-icon button { 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  .open {
+    display: block;
+  }
+
+  #mobile-menu-icon button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 /*====== Main =================================================*/
 #content {
-    min-height: 100vh;
-    background-color: var(--color7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  min-height: 100vh;
+  background-color: var(--color7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /*====== Login =================================================*/
 #section-login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 #wellcome-content {
-    height: 100%;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 #wellcome-content div {
-    padding: 2rem 0 2rem 2rem;
+  padding: 2rem 0 2rem 2rem;
 }
 
 #logo-tastemaster {
-    height: 3rem;
+  height: 3rem;
 }
 
 #wellcome-content div h1 {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    font-size: 3.5rem;
-    font-family: var(--font-title);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 3.5rem;
+  font-family: var(--font-title);
 }
 
 #wellcome-content div p {
-    font-size: 1rem;
-    font-weight: lighter;
-    text-align: justify;
-    width:90%;
+  font-size: 1rem;
+  font-weight: lighter;
+  text-align: justify;
+  width: 90%;
 }
 
 #chef-img {
-    width: 25.5rem;
-    margin-top: 2.5rem;
+  width: 25.5rem;
+  margin-top: 2.5rem;
 }
 
 #login-form {
-    background: url('../img/bg-form.svg');
-    height: 100%;
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: var(--color7);
+  background: url("../img/bg-form.svg");
+  height: 100%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color7);
 }
 
 #login-form div {
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
 }
 
 #login-form form {
-    position: relative;
-    padding: 1rem;
+  position: relative;
+  padding: 1rem;
 }
 
 #login-form form label {
-    display: block;
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    font-weight: 600;
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 #login-form form input {
-    width: 80%;
-    padding: .8rem;
-    border-radius: .5rem;
-    outline: none;
-    border: 1px solid var(--color6);
+  width: 80%;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: 1px solid var(--color6);
 }
 
 #login-form form input:hover {
-    border: 1px solid var(--color1);
+  border: 1px solid var(--color1);
 }
 
 #login-form form input:focus {
-    border: 2px solid var(--color1);
-    color: var(--color5);
+  border: 2px solid var(--color1);
+  color: var(--color5);
 }
 
 #login-form button {
-    display: block;
-    width: 30%;
-    padding: .8rem 2rem;
-    font-size: 1.1rem;
-    margin-top: 1rem;
-    background-color: #ed613d;
-    color: var(--color7);
-    font-weight: 500;
-    font-family: var(--font-title);
-    border: none;
-    cursor: pointer;
+  display: block;
+  width: 30%;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  background-color: #ed613d;
+  color: var(--color7);
+  font-weight: 500;
+  font-family: var(--font-title);
+  border: none;
+  cursor: pointer;
 }
 
 #login-form button:hover {
-    transition: .5s;
-    background-color: var(--color1);
+  transition: 0.5s;
+  background-color: var(--color1);
 }
 
 #login-form div p {
-    margin-left: 1rem;
+  margin-left: 1rem;
 }
 
 #login-form div a {
-    font-weight: 600;
-    color: var(--color7);
-    transition: .5s;
+  font-weight: 600;
+  color: var(--color7);
+  transition: 0.5s;
 }
 
 #login-form div a:hover {
-    color: var(--color5);
+  color: var(--color5);
 }
 
 /* ================register=================== */
 
-#register-container{
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    background-color: #FFF;
+#register-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
 }
 
-#register-container aside{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 37%;
-    height: 100%;
-    background-image: url('../img/login-background.png');
+#register-container aside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 37%;
+  height: 100%;
+  background-image: url("../img/login-background.png");
 }
 
-#register-container aside form{
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    height: 80%;
-    padding: 25px;
-    box-sizing: border-box;
-    gap: 15px;
+#register-container aside form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 80%;
+  padding: 25px;
+  box-sizing: border-box;
+  gap: 15px;
 }
 
-#register-container aside form input{
-    padding: 12px 15px;
-    outline: none;
-    font-size: 16px;
+#register-container aside form input {
+  padding: 12px 15px;
+  outline: none;
+  font-size: 16px;
 }
 
-#register-container aside form label{
-    color: #FFF;
-    font-weight: bold;
-    font-size: 1.4rem;
+#register-container aside form label {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.4rem;
 }
 
-#register-container aside form button{
-    width: 50%;
-    padding: 15px 10px;
-    text-transform: uppercase;
-    background-color: #317BE9;
-    border: none;
-    color: #FFF;
-    font-weight: bold;
-    font-size: 1.1rem;
+#register-container aside form button {
+  width: 50%;
+  padding: 15px 10px;
+  text-transform: uppercase;
+  background-color: #317be9;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 
-#register-container aside form span{
-    font-weight: bold;
-    color: #FFF;
+#register-container aside form span {
+  font-weight: bold;
+  color: #fff;
 }
 
-#register-container aside form a{
-    color: #317BE9;
+#register-container aside form a {
+  color: #317be9;
 }
 
-#register-container section{
-    display: flex;
-    flex-direction: column;
-    width: 65%;
-    height: 100%;
-    padding: 5%;
-    gap: 15px;
-    box-sizing: border-box;
-    background-image: url('../img/register-bg.png');
-    background-size: contain;
+#register-container section {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  height: 100%;
+  padding: 5%;
+  gap: 15px;
+  box-sizing: border-box;
+  background-image: url("../img/register-bg.png");
+  background-size: contain;
 }
 
-#register-container section .logo{
-    max-width: 200px;
+#register-container section .logo {
+  max-width: 200px;
 }
 
-#register-container section h1{
-    font-size: 32px;
+#register-container section h1 {
+  font-size: 32px;
 }
 
-#register-container section p{
-    width: 60%;
-    font-size: 18px;
-    font-weight: 100;
+#register-container section p {
+  width: 60%;
+  font-size: 18px;
+  font-weight: 100;
 }
 
 /*====== Footer =================================================*/
 footer {
-    background-color: #dadada;
-    padding: 2rem;
+  width: 100%;
+  background-color: #dadada;
+  padding: 2rem;
 }
 
 #about-section {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 #about-section div:nth-child(1) {
-    width: 60%;
+  width: 60%;
 }
 
 #about-section div:nth-child(2) {
-    display: flex;
-    justify-content: flex-end;
-    width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
+  padding-right: 1rem;
 }
 
 #about-section img {
-    height: 3.5rem;
-    margin: 0 0 2rem -1rem;
+  height: 3.5rem;
+  margin: 0 0 2rem -1rem;
 }
 
 #about-section p {
-    text-align: justify;
-    font-weight: lighter;
+  text-align: justify;
+  font-weight: lighter;
+  font-size: 0.8rem;
 }
 
 #about-section ul {
-    list-style: none;
+  list-style: none;
 }
 
 #about-section li {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 #about-section a {
-    color: var(--color6);
-    text-decoration: none;
-    font-weight: 500;
+  color: var(--color6);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.8rem;
 }
 
 #about-section a:hover {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 #icons-section {
-    display: flex;
-    align-items: center; /* Alinha os itens verticalmente ao centro */
+  display: flex;
+  align-items: center; /* Alinha os itens verticalmente ao centro */
 }
 
 .icons {
-    margin-right: 1rem;
-    height: 2rem;
+  margin-right: 1rem;
+  height: 2rem;
 }
 
 #icons-section hr {
-    height: 2.5px;
-    background-color: var(--color5);
-    flex-grow: 1;
-    margin: 0 0 0 10px;
+  height: 2.5px;
+  background-color: var(--color5);
+  flex-grow: 1;
+  margin: 0 0 0 10px;
 }
 
 p#direitos-tastemaster {
-    font-size: .7rem;
-    text-align: right;
-    margin-top: -.8rem;
+  font-size: 0.7rem;
+  text-align: right;
+  margin-top: -0.8rem;
 }
 
 /* ==================home================== */
-#home-section #premium{
-    margin-top: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8%;
-    width: 100%;
-    height: 90vh;
+#home-section #premium {
+  margin-top: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  width: 100%;
+  height: 90vh;
 }
 
-#home-section #premium-info{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 40%;
+#home-section #premium-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 40%;
 }
 
-#home-section #premium-info h1{
-    font-size: 42px;
+#home-section #premium-info h1 {
+  font-size: 42px;
 }
 
-#home-section #premium-info p{
-    font-size: 20px;
-    font-weight: 100;
+#home-section #premium-info p {
+  font-size: 20px;
+  font-weight: 100;
 }
 
-#home-section #premium-info button{
-    width: 220px;
-    padding: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    background-color: #F0613D;
-    color: #FFF;
+#home-section #premium-info button {
+  width: 220px;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  background-color: #f0613d;
+  color: #fff;
 }
 
-#home-section #premium-info button:hover{
-    scale: 1.05;
-    cursor: pointer;
+#home-section #premium-info button:hover {
+  scale: 1.05;
+  cursor: pointer;
 }
 
-#home-section #chef-premium{
-    height: 50%;
+#home-section #chef-premium {
+  height: 70%;
 }
 
-#home-section #explore{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15%;
-    width: 100%;
-    height: 60vh;
-    background-color: #eee;
+#home-section #explore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15%;
+  width: 100%;
+  height: 60vh;
+  background-color: #eee;
 }
 
-#home-section #explore h1{
-    width: 40%;
-    position: relative;
-    font-size: 42px;
-    text-align: center;
+#home-section #explore h1 {
+  width: 40%;
+  position: relative;
+  font-size: 42px;
+  text-align: center;
 }
 
-#home-section #explore h1 span{
-    position: relative;
-    font-size: 42px;
-    color: #F0613D;
+#home-section #explore h1 span {
+  position: relative;
+  font-size: 42px;
+  color: #f0613d;
 }
 
-#home-section #options{
-    display: flex;
-    gap: 5%;
+#home-section #options {
+  display: flex;
+  gap: 5%;
 }
 
-#home-section .explore-card{
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    background-color: #fff;
-    padding: 25px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    gap: 10px;
+#home-section .explore-card {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  background-color: #fff;
+  padding: 25px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  gap: 10px;
 }
 
-#home-section .explore-card-icon{
-    width: 45px;
+#home-section .explore-card-icon {
+  width: 45px;
 }
 
-#home-section .explore-card h2{
-    font-size: 22px;
+#home-section .explore-card h2 {
+  font-size: 22px;
 }
 
-#home-section .explore-card p{
-    font-size: 16px;
-    font-weight: 100;
+#home-section .explore-card p {
+  font-size: 16px;
+  font-weight: 100;
 }
 
-#home-section #chefs-section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10%;
-    width: 100%;
-    height: 60vh;
+#home-section #chefs-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+  width: 100%;
+  height: 60vh;
 }
 
-#home-section #chefs-section h1{
-    width: 40%;
-    position: relative;
-    font-size: 42px;
-    text-align: center;
+#home-section #chefs-section h1 {
+  width: 40%;
+  position: relative;
+  font-size: 42px;
+  text-align: center;
 }
 
-#home-section #chefs{
-    display: flex;
-    justify-content: space-around;
-    width: 80%;
-    height: 50%;
+#home-section #chefs {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  height: 50%;
 }
 
-#home-section .chef-card{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    max-width: 20%;
+#home-section .chef-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 20%;
 }
 
-#home-section .picture{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: relative;
+#home-section .picture {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
 }
 
-#home-section .social-medias{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 40%;
-    position: absolute;
-    bottom: -10%;
+#home-section .social-medias {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 40%;
+  position: absolute;
+  bottom: -10%;
 }
 
-#home-section #center-icon{
-    align-self: self-end;
+#home-section #center-icon {
+  align-self: self-end;
 }
 
-#home-section .social-media-icon{
-    aspect-ratio: 1/1;
-    height: 60%;
-    transition: 0.1s ease-in-out;
+#home-section .social-media-icon {
+  aspect-ratio: 1/1;
+  height: 60%;
+  transition: 0.1s ease-in-out;
 }
 
-#home-section .social-media-icon:hover{
-    cursor: pointer;
-    scale: 1.08;
+#home-section .social-media-icon:hover {
+  cursor: pointer;
+  scale: 1.08;
 }
 
-#home-section .chef-card h2{
-    margin-top: 10%;
-    text-align: center;
+#home-section .chef-card h2 {
+  margin-top: 10%;
+  text-align: center;
+}
+
+#home-section .chef-card h4 {
+  text-align: center;
+}
+
+/*===== Workshops =================================================*/
+#section-workshops {
+  min-height: 100vh;
+  width: 100%;
+  margin-top: 10vh;
+  padding: 0 2rem;
+}
+
+#banner-workshop {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 10vh;
+  z-index: 1;
+}
+
+#section-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 15vh;
+  position: relative;
+  z-index: 2;
+  color: var(--color7);
+}
+
+#section-banner h1 {
+  font-family: var(--font-title);
+  margin: 1.5rem 0;
+  font-size: 2.5rem;
+}
+
+#section-banner h1 span {
+  font-size: 2.5rem;
+  display: block;
+}
+
+#section-banner form {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 1rem 0;
+  background-color: var(--color7);
+  border: 3px solid rgba(0, 0, 0, 0.1);
+}
+
+#section-banner form div {
+  display: flex;
+  align-items: center;
+}
+
+#section-banner form div input {
+  border: none;
+  width: 25vw;
+  border-bottom: 1px solid;
+  outline: none;
+  background: none;
+  padding: 0.2rem;
+  margin-left: 1rem;
+}
+
+#section-banner form img {
+  width: 1.5rem;
+  margin-left: 1rem;
+}
+
+#section-banner form select {
+  padding: 0.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#section-banner form button {
+  padding: 0.2rem 1rem;
+  border: 1px solid;
+  outline: none;
+  margin-right: 1rem;
+  cursor: pointer;
+  background: var(--color5);
+  color: var(--color7);
+  transition: 0.5s;
+  border: 2px solid var(--color5);
+}
+
+#section-banner form button:hover {
+  border: 2px solid var(--color5);
+  background: var(--color7);
+  color: var(--color5);
+  font-weight: bold;
+}
+
+#show-workshop {
+  display: flex;
+  position: relative;
+  z-index: 2;
+  min-height: 75vh;
+  margin: 10vh 0;
+}
+
+#show-workshop aside {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+#show-workshop aside section {
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+#show-workshop aside section h1 {
+  font-size: 1.2rem;
+}
+
+/* Workshops iniciados */
+#workshops-started {
+  width: 90%;
+  min-height: 5rem;
+  margin-left: 1rem;
+}
+
+.workshop-started-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0 1.5rem 1rem;
+  margin-top: 0.5rem;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  transition: 0.2s;
+}
+
+.workshop-started-card:hover {
+  border: 2.5px solid var(--color2);
+  font-size: 1.1rem;
+  transform: scale(1.01);
+}
+
+.workshop-started-card p {
+  margin-bottom: 0.5rem;
+}
+
+.workshop-started-card p:nth-child(2) {
+  cursor: pointer;
+  color: var(--color1);
+}
+
+.workshop-started-card p:nth-child(2):hover {
+  text-decoration: underline;
+}
+
+.workshop-started-card a:hover {
+  font-weight: 600;
+  color: var(--color1);
+}
+
+/* Meus workshops */
+#my-workshops {
+  width: 90%;
+  margin-left: 1rem;
+}
+
+.my-workshop-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 1rem;
+  margin-top: 0.5rem;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  transition: 0.2s;
+  background: var(--color5);
+  color: var(--color7);
+}
+
+.my-workshop-card p {
+  font-size: .8rem;
+}
+
+.my-workshop-card ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.my-workshop-card ul li img {
+  cursor: pointer;
+}
+
+.my-workshop-card:hover {
+  border: 2.5px solid var(--color2);
+  font-size: 1.1rem;
+  transform: scale(1.01);
+}
+
+#div-btn-my-ws {
+  display: flex;
+  justify-content: center;
+}
+
+#div-btn-my-ws div {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  padding: .5rem 1rem;
+  background: var(--color1);
+  transition: .5s;
+}
+
+#div-btn-my-ws div button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  color: var(--color7);
+}
+
+#div-btn-my-ws div:hover {
+  transform: scale(1.05);
+}
+
+/* Efeito modal (Deletar workshop) */
+#effectModal {
+  position: fixed;
+  overflow-y: scroll;
+  z-index: 100;
+  width: 100vw;
+  min-height: 100vh;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal-content {
+  position: absolute;
+  padding: 2rem;
+  background: var(--color7);
+  border-radius: 1rem;
+  overflow-y: scroll;
+}
+
+#modal-content p {
+  font-size: 1.5rem;
+  font-family: var(--font-title);
+  margin-bottom: 2rem;
+}
+
+#div-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+#btn-confirm {
+  padding: .5rem 2rem;
+  border-radius: .5rem;
+  outline: none;
+  border: none;
+  background: var(--color5);
+  color: var(--color7);
+  transition: .5s;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#btn-confirm:hover {
+  background: var(--color1);
+  transform: scale(1.1);
+}
+
+#btn-cancel {
+  padding: .5rem 2rem;
+  border-radius: .5rem;
+  outline: none;
+  border: 1px solid var(--color6);
+  color: var(--color6);
+  transition: .5s;
+  cursor: pointer;
+}
+
+#btn-cancel:hover {
+  transform: scale(1.1);
+}
+
+#modal-content span {
+  display: block;
+  text-align: center;
+  margin-top: .5rem;
+}
+
+/* Cards workshops */
+#show-workshops-cards {
+  width: 70%;
+  display: flex;
+  height: fit-content;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 5rem;
+}
+
+.card-workshop {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: .5s;
+  padding: .4rem;
+  border-radius: .5rem;
+}
+
+.card-workshop:hover {
+  transform: scale(1.05);
+  color: var(--color5);
+}
+
+.img-card-workshop {
+  width: 100%;
+  border-radius: 1rem;
+  padding: 0;
+}
+
+.card-workshop h3 {
+  font-size: 1rem;
+  padding-top: 1rem;
+}
+
+.card-workshop p {
+  font-size: .8rem;
+  padding-top: 0.5rem;
+}
+
+#date-workshop {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1rem;
+  gap: .5rem;
+}
+
+#date-workshop img {
+  width: 1rem;
+  height: 1rem;
+}
+
+#date-workshop p {
+  font-size: .8rem;
+  text-align: center;
+  margin-bottom: .3rem;
+}
+
+.card-workshop button {
+  width: fit-content;
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  background-color: var(--color1);
+  color: var(--color7);
+  font-size: .8rem;
+  transition: .5s;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.card-workshop button:hover {
+  background: var(--color5);
+  font-weight: bold;
+}
+
+.card-workshop p {
+  text-align: justify;
+}
+
+/*------- Efeito modal (criar workshop) -------------*/
+#modal-header-content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+#modal-header-content h1 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color5);
+  font-family: var(--font-title);
+}
+
+#modal-header-content img {
+  width: 2rem;
+  cursor: pointer;
+  transition: .5s;
+}
+
+#modal-header-content img:hover {
+  transform: scale(1.1);
+}
+
+#form-modal {
+  display: grid;
+  grid-template-areas:
+    "fieldset-overview fieldset-content fieldset-content"
+    "div-button div-button div-button";
+  gap: 1rem;
+  justify-content: center;
+}
+
+#fieldset-overview {
+  height: fit-content;
+  grid-area: fieldset-overview;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#fieldset-overview input {
+  font-size: .8rem;
+  padding: .5rem;
+  border-radius: 1rem;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, .4);
+  transition: .5s;
+  outline: none;
+}
+
+#fieldset-overview input:hover {
+  border: 1px solid var(--color1);
+}
+
+#fieldset-overview input:focus {
+  border: 1px solid var(--color1);
+}
+
+.inputs-label {
+  margin-left: .2rem;
+  border: 1px solid rgba(0, 0, 0, .3);
+}
+
+#fieldset-overview textarea {
+  font-size: .8rem;
+  padding: .5rem;
+  border-radius: 1rem 1rem 0 1rem;
+  outline: none;
+}
+
+#fieldset-overview textarea:hover {
+  border: 1px solid var(--color1);
+}
+
+#fieldset-overview textarea:focus {
+  border: 1px solid var(--color1);
+}
+
+#difficulty-div {
+  margin: 1rem 0 0 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.label-input-radio {
+  display: flex;
+  gap: 7px;
+  color: var(--color5);
+  flex-direction: row-reverse;
+}
+
+input[type="file"] {
+  display: block;
+  margin: .5rem;
+  border: 1.5px dashed var(--color5) !important;
+  text-align: center;
+}
+
+input[type="file"]::placeholder {
+  content: "Selecionar imagem" !important;
+}
+
+/* Botão "Chose file" */
+#customInputFile::-webkit-file-upload-button {
+  display: none;
+}
+
+/*========= Fieldset Conteúdo ==============*/
+#fieldset-content {
+  grid-area: fieldset-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#fieldset-content p {
+  font-size: .9rem;
+  margin-bottom: .5rem;
+  font-family: var(--font-text);
+  font-weight: 600;
+}
+
+#fieldset-content div {
+  display: flex;
+  flex-direction: column;
+}
+
+#div-ingredient-inputs {
+  width: 100%;
+}
+
+#div-ingredient {
+  display: flex;
+  flex-direction: row !important;
+  width: 100%;
+  margin-bottom: .5rem;
+}
+
+#div-ingredient input {
+  width: 100%;
+  border-radius: 1rem;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, .3);
+  padding: .2rem 1rem;
+  font-size: .8rem;
+}
+
+#div-ingredient button {
+  margin-left: .2rem;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: var(--color7);
+  background-color: rgb(240, 106, 106);
+  cursor: pointer;
+  padding: .5rem;
+  transform: scale(.7);
+  border-radius: .5rem;
+  outline: none;
+  border: none;
+}
+
+.button-add {
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: .5rem;
+  background: var(--color4);
+  color: var(--color7);
+  cursor: pointer;
+  font-size: .8rem;
+  font-weight: bold;
+  transition: .5s;
+}
+
+.button-add:hover {
+  background: #227b71;
+  color: var(--color7);
+}
+
+/* ------------TOPICS---------------*/
+#div-topic-inputs {
+  width: 25vw;
+}
+
+#div-topic-inputs hr {
+  margin-top: 1rem;
+  height: 5px;
+  background: var(--color5);
+}
+
+#div-topic-inputs p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--color1);
+}
+
+#div-topic-inputs label {
+  color: var(--color5);
+}
+
+#div-topic-inputs input{
+  display: block;
+  margin-bottom: .5rem;
+  width: 100%;
+  font-size: .8rem;
+  padding: .3rem 1rem;
+  border-radius: .5rem;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, .3);
+}
+
+#div-topic-inputs button{
+  padding: .5rem 1rem;
+  border: none;
+  border-radius: .5rem;
+  background: rgb(240, 106, 106);
+  cursor: pointer;
+  color: var(--color4);
+  font-size: .8rem;
+  font-weight: bold;
+  transition: .5s;
+}
+
+#div-topic-inputs button{
+  color: var(--color7);
+}
+
+#fieldset-content button {
+  width: fit-content;
+}
+
+/*----------- BUTTON SUBMIT ---------*/
+#div-button-submit {
+  grid-area: div-button;
+  display: flex;
+  justify-content: center;
+}
+
+#button-submit {
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--color7);
+  background: var(--color5);
+  outline: none;
+  border-radius: .5rem;
+  border: none;
+  cursor: pointer;
+  transition: .5s;
+}
+
+#button-submit:hover {
+  background: var(--color1);
+  transform: scale(1.05);
+}
+
+#form-modal fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .1);
+  border: 1px solid var(--color5);
+  border-radius: 1rem;
+  transition: .5s;
+}
+
+#form-modal fieldset:hover {
+  border: 1.5px solid var(--color1);
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, .3);
+  transform: scale(1.02);
+}
+
+#form-modal fieldset legend {
+  padding: 0 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color5);
+}
+
+#form-modal fieldset label {
+  font-size: .8rem;
+  font-weight: 600;
+}
+
+/*======== show-workshop ==================================*/
+ #show-workshop-section {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+#section-header-workshop {
+  background: url('../img/banner-open-workshop.svg') no-repeat;
+  background-size: cover;
+  height: 30vh;
+  margin-top: 10vh;
+  width: 100%;
+  padding: 1rem 2rem 0 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#section-header-workshop h1 {
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  color: var(--color5);
+  font-weight: bold;
+}
+
+#section-header-workshop ul {
+  list-style: none;
+  display: flex;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+#section-header-workshop ul li {
+  display: flex;
+  font-weight: bold;
+  color: var(--color5);
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+#section-header-workshop ul li img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+#button-container {
+  display: flex;
+  gap: 1rem;
+}
+
+#button-container button {
+  padding: .5rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.button-activated {
+  border-bottom: 3px solid var(--color7) !important;
+  font-weight: bold;
+  color: var(--color7);
+  background: var(--color5) !important;
+  border-radius: 1rem 1rem 0 0;
+  transform: scale(1.1);
+  transition: .5s;
+}
+
+/* -------- content ----------- */
+#workshop-content {
+  min-height: 60vh;
+  width: 100vw;
+  padding: 2rem;
+}
+
+#section-description-workshop {
+  width: 60%;
+  margin-right: 2rem;
+  text-align: justify;
+}
+
+#section-description-workshop p {
+  width: 90%;
+}
+
+#section-workshop-creator {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-right: 2rem;
+}
+
+#section-workshop-creator div p {
+  text-align: justify;
+}
+
+#creator-info-div {
+  display: flex;
+  gap: 1rem;
+  height: 15%;
+}
+
+#creator-info-div h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: .3rem;
+  color: var(--color5);
+}
+
+#creator-info-div p {
+  color: var(--color1);
+}
+
+#image-workshop-creator {
+  width: 20%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.accordion-item {
+  border-bottom: 1px solid var(--color5);
+  width: 60%;
+}
+
+.content-accordion {
+  display: none;
+}
+
+.div-header-topic {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  cursor: pointer;
+}
+
+.div-header-topic div {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.div-header-topic p {
+  width: fit-content;
+  font-weight: lighter;
+}
+
+#ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+#ingredients div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#ingredients div img {
+  height: 2rem;
+}
+
+#ingredients div p {
+  font-size: 1rem;
+  color: var(--color6);
+}
+
+.content-topic {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.content-topic iframe {
+  width: 90%;
+  height: 50vh;
+}
+
+#workshop-content button {
+  width: fit-content;
+  padding: .8rem 1rem;
+  color: var(--color7);
+  background: var(--color1);
+  outline: none;
+  border: none;
+  transition: .5s;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+#workshop-content button:hover {
+  transform: scaleX(1.05);
 }
 
 #home-section .chef-card h4{
