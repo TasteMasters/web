@@ -1,18 +1,26 @@
 import { getWorkshop } from "../../../mocks/mock-workshop.js";
+import { urlRoute } from "../url-routes.js";
 
 export default function createSectionStartedWorkshop(id) {
   const data = getWorkshop(id);
 
-  const template = `
-        <div id="ws${id}" class="workshop-started-card">
-            <p>${data.title}</p>
-            <a href="/">Voltar a praticar</a>
-        <div>
-    `;
+    const div = document.createElement("div");
+    div.id = `ws${id}`;
+    div.classList.add("workshop-started-card");
 
-  const div = document.createElement("div");
-  div.id = "workshops-started";
-  div.innerHTML = template;
+    const titleParagraph = document.createElement("p");
+    titleParagraph.textContent = data.title;
 
-  return div;
+    const link = document.createElement("p");
+    link.dataset.idWorkshop = id;
+    link.innerText = "Voltar a praticar";
+    link.addEventListener('click', async (e) => {
+      e.preventDefault();
+      await urlRoute('/show-workshop', link.dataset.idWorkshop);
+    });
+
+    div.appendChild(titleParagraph);
+    div.appendChild(link);
+
+    return div;
 }

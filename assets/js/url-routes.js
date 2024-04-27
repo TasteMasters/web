@@ -44,15 +44,20 @@ const urlRoutes = {
         path: '/pages/registrar.html',
         title: '',
         description: ''
+    },
+    "/show-workshop": {
+        path: '/pages/show-workshop.html',
+        title: '',
+        description: ''
     }
 };
 
-const urlRoute = (url) => {
+const urlRoute = (url, idWorkshoop) => {
     window.history.pushState({}, "", url);
-    urlLocationHandler();
+    urlLocationHandler(idWorkshoop);
 };
 
-const urlLocationHandler = async () => {
+const urlLocationHandler = async (idWorkshoop) => {
     const location = window.location.pathname;
     if (location.length === 0) {
         location = "/";
@@ -60,11 +65,11 @@ const urlLocationHandler = async () => {
 
     const route = urlRoutes[location] || urlRoutes[404];
     const html = await fetch(route.path).then((response) => response.text());
-    createTemplate(route.path, html);
+    createTemplate(route.path, html, idWorkshoop);
 };
 
 window.addEventListener('popstate', urlLocationHandler);
 
 urlLocationHandler();
 
-export { urlLocationHandler };
+export { urlLocationHandler, urlRoute };

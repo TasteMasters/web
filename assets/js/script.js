@@ -6,7 +6,7 @@ import menuMobile from "./animation/menu-mobile.js";
 import handlePageContent from "./handlePageContent.js";
 
 
-export default async function createTemplate(page, content) {
+export default async function createTemplate(page, content, idWorkshoop) {
     const body = document.querySelector('body');
 
     if (page === '/pages/login.html' || page === '/pages/registrar.html') {
@@ -30,5 +30,5 @@ export default async function createTemplate(page, content) {
     footerAnimation()
     menuMobile();
 
-    handlePageContent(page);
+    handlePageContent(page, idWorkshoop);
 }

@@ -1,5 +1,6 @@
 import { getWorkshop } from "../../../mocks/mock-workshop.js";
 import { getUser } from "../../../mocks/user.js";
+import { urlRoute } from "../url-routes.js";
 import { addModalDelete } from "./modal-delete-ws.js";
 import workshopInformation from "./workshop-information.js";
 
@@ -38,11 +39,19 @@ export default function createSectionMyWorkshop(id) {
     body.appendChild(modalEditWS);
   });
 
+  const workshopLink = document.createElement("a");
+  workshopLink.href = "/show-workshop";
   const moreIcon = document.createElement("img");
   moreIcon.src = "assets/img/ws-more.svg";
   moreIcon.classList.add("OpenWs");
   moreIcon.dataset.idWorkshop = id;
   moreIcon.alt = "Open workshop";
+  workshopLink.appendChild(moreIcon)
+  moreIcon.addEventListener('click', (event) => {
+    event.preventDefault();
+    urlRoute('/show-workshop', moreIcon.dataset.idWorkshop);
+  });
+
 
   const deleteLi = document.createElement("li");
   deleteLi.appendChild(deleteIcon);
@@ -51,7 +60,7 @@ export default function createSectionMyWorkshop(id) {
   editLi.appendChild(editIcon);
 
   const moreLi = document.createElement("li");
-  moreLi.appendChild(moreIcon);
+  moreLi.appendChild(workshopLink);
 
   // Montando a estrutura do template
   iconsList.appendChild(deleteLi);

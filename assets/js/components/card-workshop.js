@@ -1,3 +1,6 @@
+import { urlRoute } from "../url-routes.js";
+import pageWorkshop from "../page-script/show-workshop.js";
+
 export default async function createCardWorkshop(data, user_workshops_started) {
     const templateCard = document.createElement('div');
     templateCard.className = 'card-workshop';
@@ -32,9 +35,12 @@ export default async function createCardWorkshop(data, user_workshops_started) {
     const pDate = document.createElement('p');
     pDate.innerText = `${data.start_date}`;
 
-    const btnCard = document.createElement('a');
-    btnCard.href = '/';
+    const btnCard = document.createElement('button'); // antes era um a
     btnCard.dataset.idWorkshop = data.id;
+    btnCard.addEventListener('click', async (e) => {
+        e.preventDefault();
+        await urlRoute('/show-workshop', btnCard.dataset.idWorkshop);
+    })
 
     const idWorkshop = Number.parseInt(data.id)
     const included = user_workshops_started.includes(idWorkshop);
