@@ -183,6 +183,17 @@ nav a {
   justify-content: space-evenly;
 }
 
+#wellcome-content::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 54.5vw;
+  height: 100%;
+  z-index: 0;
+  background: rgba(0, 0, 0, .3);
+}
+
 #wellcome-content div {
   padding: 2rem 0 2rem 2rem;
 }
@@ -276,6 +287,7 @@ nav a {
 
 #login-form div p {
   margin-left: 1rem;
+  position: relative;
 }
 
 #login-form div a {
@@ -286,6 +298,86 @@ nav a {
 
 #login-form div a:hover {
   color: var(--color5);
+}
+
+@media (max-width: 900px) {
+  #login-form button {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 900px) {
+  #section-login {
+    flex-direction: column;
+  }
+
+  #wellcome-content {
+    display: none;
+  }
+
+  #login-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #login-form::after {
+    content: "";
+    position: absolute;
+    top: 2rem;
+    left: 1.5rem;
+    width: 180px;
+    height: 45px;
+    z-index: 1;
+    background-image: url(../img/logo-white.svg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  #section-login::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: rgba(0, 0, 0, .3);
+  }
+
+  #login-form form {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+  }
+
+  #login-form form label {
+    width: 100%;
+  }
+
+  #login-form form input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  #login-form::after {
+    content: "";
+    position: absolute;
+    top: 2rem;
+    left: 1.5rem;
+    width: 150px;
+    height: 40px;
+    z-index: 1;
+    background-image: url(../img/logo-white.svg);
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 /* ================register=================== */
@@ -304,6 +396,18 @@ nav a {
   width: 37%;
   height: 100%;
   background-image: url("../img/login-background.png");
+  z-index: 2;
+}
+
+#register-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36.3%;
+  height: 100%;
+  z-index: 0;
+  background: rgba(0, 0, 0, .3);
 }
 
 #register-container aside form {
@@ -325,18 +429,19 @@ nav a {
 #register-container aside form label {
   color: #fff;
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
 #register-container aside form button {
-  width: 50%;
-  padding: 15px 10px;
+  width: fit-content;
+  padding: 1rem 2rem;
   text-transform: uppercase;
   background-color: #317be9;
   border: none;
   color: #fff;
   font-weight: bold;
   font-size: 1.1rem;
+  margin-top: 1rem;
 }
 
 #register-container aside form span {
@@ -356,7 +461,8 @@ nav a {
   padding: 5%;
   gap: 15px;
   box-sizing: border-box;
-  background-image: url("../img/register-bg.png");
+  background: url("../img/register-bg.png") no-repeat;
+  background-position: center;
   background-size: contain;
 }
 
@@ -372,6 +478,49 @@ nav a {
   width: 60%;
   font-size: 18px;
   font-weight: 100;
+}
+
+@media (max-width: 850px) {
+    #register-container section {
+      display: none;
+    }
+
+    #register-container::before {
+      width: 100%;
+    }
+
+    #register-container aside {
+      width: 100%;
+    }
+
+    #register-container aside::before {
+      content: "";
+      position: absolute;
+      top: 2rem;
+      left: 1.5rem;
+      width: 150px;
+      height: 40px;
+      z-index: 1;
+      background-image: url(../img/logo-white.svg);
+      background-size: cover;
+      background-position: center;
+    }
+
+    #register-container aside form {
+      justify-content: center;
+      align-items: center;
+      width: 60%;
+      padding: 0;
+    }
+
+    #register-container aside form label {
+      width: 100%;
+      margin-bottom: -.8rem;
+    }
+
+    #register-container aside input {
+      width: 100%;
+    }
 }
 
 /*====== Footer =================================================*/
