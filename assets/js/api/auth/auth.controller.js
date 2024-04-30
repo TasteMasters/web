@@ -1,10 +1,7 @@
 import { environment } from "../enviroment.js";
 
 export class AuthController {
-  constructor() {}
-
-  isAuthenticated() {
-    console.log(document.cookie);
+  static isAuthenticated() {
     if (!document.cookie.includes("token")) {
       return false;
     }
@@ -12,7 +9,7 @@ export class AuthController {
     return true;
   }
 
-  async signin(email, password) {
+  static async signin(email, password) {
     return await fetch(`${environment.host}/auth/signin`, {
       method: "POST",
       headers: {
@@ -23,21 +20,16 @@ export class AuthController {
         email,
         password,
       }),
-    })
-      .then((response) => {
-        if (response.status !== 200) {
-          return false;
-        }
+    }).then((response) => {
+      if (response.status !== 200) {
+        throw new Error("Email ou senha inválidos");
+      }
 
-        return true;
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        return false;
-      });
+      return true;
+    });
   }
 
-  async signup({ name, email, password, password_confirmation }) {
+  static async signup({ name, email, password, password_confirmation }) {
     return await fetch(`${environment.host}/auth/signup`, {
       method: "POST",
       headers: {
@@ -49,17 +41,12 @@ export class AuthController {
         password,
         password_confirmation,
       }),
-    })
-      .then((response) => {
-        if (response.status !== 200) {
-          return false;
-        }
+    }).then((response) => {
+      if (response.status !== 200) {
+        throw new Error("Email ou senha inválidos");
+      }
 
-        return true;
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        return false;
-      });
+      return true;
+    });
   }
 }

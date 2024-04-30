@@ -5,6 +5,8 @@ import footerAnimation from "./animation/footer-animation.js";
 import menuMobile from "./animation/menu-mobile.js";
 import handlePageContent from "./handlePageContent.js";
 
+const urlBlackList = ["/pages/login.html", "/pages/registrar.html"];
+
 export default async function createTemplate(page, content, idWorkshoop) {
   const body = document.querySelector("body");
 
@@ -13,12 +15,12 @@ export default async function createTemplate(page, content, idWorkshoop) {
   const footerElement = footer();
 
   body.innerHTML = "";
-  body.appendChild(headerElement);
+  if (!urlBlackList.includes(page)) body.appendChild(headerElement);
   body.appendChild(mainElement);
-  body.appendChild(footerElement);
+  if (!urlBlackList.includes(page)) body.appendChild(footerElement);
 
   handlePageContent(page, idWorkshoop);
   //Animations
-  footerAnimation();
-  menuMobile();
+  if (!urlBlackList.includes(page)) footerAnimation();
+  if (!urlBlackList.includes(page)) menuMobile();
 }
