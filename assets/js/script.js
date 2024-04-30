@@ -5,28 +5,20 @@ import footerAnimation from "./animation/footer-animation.js";
 import menuMobile from "./animation/menu-mobile.js";
 import handlePageContent from "./handlePageContent.js";
 
+const urlBlackList = ["/pages/login.html", "/pages/registrar.html"];
 
 export default async function createTemplate(page, content, idWorkshoop) {
-    const body = document.querySelector('body');
+  const body = document.querySelector("body");
 
-    if (page === '/pages/login.html' || page === '/pages/registrar.html') {
-        body.innerHTML = '';
-        const mainElement = main();
-        mainElement.innerHTML = content;
-        body.appendChild(mainElement);
-        return;
-    }
-    
-    const headerElement = headerLogin();
-    const mainElement = main(content);
-    const footerElement = footer();
-    
-    body.appendChild(mainElement);
-    body.appendChild(footerElement);
-    
-    //Animations
-    footerAnimation()
-    menuMobile();
+  const headerElement = headerLogin();
+  const mainElement = main(content);
+  const footerElement = footer();
+  
+  body.appendChild(mainElement);
+  if (!urlBlackList.includes(page)) body.appendChild(footerElement);
 
-    handlePageContent(page, idWorkshoop);
+  handlePageContent(page, idWorkshoop);
+  //Animations
+  if (!urlBlackList.includes(page)) footerAnimation();
+  if (!urlBlackList.includes(page)) menuMobile();
 }

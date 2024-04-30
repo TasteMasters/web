@@ -1,26 +1,24 @@
-import workshop from "./page-script/workshop.js";
-import pageWorkshop from "./page-script/show-workshop.js";
+// import workshop from "./page-script/workshop.js";
+// import pageWorkshop from "./page-script/show-workshop.js";
+
+import login from "./page-script/login.js";
+import registrar from "./page-script/registrar.js";
 
 export default async function handlePageContent(page, idWorkshoop) {
-    // Workshop
-    if (page === '/pages/workshops.html') {
-        workshop();
-    }
+  const currentPage = page.replace("/pages/", "").replace(".html", "");
 
-    // Abrir Workshop
-    if (page === '/pages/show-workshop.html') {
-        pageWorkshop(idWorkshoop);
-    }
-
-    // Desafios
-    if (page === '/pages/desafios.html') {
-    }
-
-    // Receitas
-    if (page === '/pages/receitas.html') {
-    }
-
-    // Perfil
-    if (page === '/pages/perfil.html') {
-    }
-};
+  switch (currentPage) {
+    case "login":
+      login();
+      break;
+    case "registrar":
+      registrar();
+      break;
+    case "workshops":
+      //workshop();
+      break;
+    case "show-workshop":
+      //pageWorkshop(idWorkshoop);
+      break;
+  }
+}
