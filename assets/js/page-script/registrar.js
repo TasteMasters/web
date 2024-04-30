@@ -2,6 +2,8 @@ import { AuthController } from "../api/auth/auth.controller.js";
 import { urlRoute } from "../url-routes.js";
 
 export default async function registrar() {
+  if (AuthController.isAuthenticated()) urlRoute("/", null);
+
   const name = document.getElementById("name_input");
   const email = document.getElementById("email_input");
   const password = document.getElementById("password_input");
