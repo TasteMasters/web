@@ -491,6 +491,18 @@ nav a {
   font-weight: 100;
 }
 
+#register-container #errorMessage {
+  display: none;
+  height: 40px;
+  justify-content: center;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding: 10px 0;
+  border-radius: 8px;
+  background: red;
+  color: white;
+}
+
 @media (max-width: 850px) {
     #register-container section {
       display: none;

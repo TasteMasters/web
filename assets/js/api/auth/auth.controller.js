@@ -35,6 +35,7 @@ export class AuthController {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({
         name,
         email,
@@ -42,11 +43,13 @@ export class AuthController {
         password_confirmation,
       }),
     }).then((response) => {
-      if (response.status !== 200) {
-        throw new Error("Email ou senha inválidos");
+      if (response.status === 200) {
+        return true;
+      } else if (response.status === 409) {
+        throw new Error("Email já cadastrado");
+      } else {
+        throw new Error("Erro ao cadastrar");
       }
-
-      return true;
     });
   }
 }
