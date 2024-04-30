@@ -21,8 +21,6 @@ export default async function createTemplate(page, content, idWorkshoop) {
     const mainElement = main(content);
     const footerElement = footer();
     
-    body.innerHTML = '';
-    body.appendChild(headerElement);
     body.appendChild(mainElement);
     body.appendChild(footerElement);
     
