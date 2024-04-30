@@ -65,6 +65,11 @@ header img {
   list-style: none;
 }
 
+#img-user {
+  width: 4rem;
+  margin-top: .5rem;
+}
+
 #navigation li:hover:nth-child(-n + 3) {
   border-bottom: 2px solid var(--color1);
 }

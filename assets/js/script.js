@@ -13,9 +13,7 @@ export default async function createTemplate(page, content, idWorkshoop) {
   const headerElement = headerLogin();
   const mainElement = main(content);
   const footerElement = footer();
-
-  body.innerHTML = "";
-  if (!urlBlackList.includes(page)) body.appendChild(headerElement);
+  
   body.appendChild(mainElement);
   if (!urlBlackList.includes(page)) body.appendChild(footerElement);
 
