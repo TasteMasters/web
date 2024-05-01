@@ -1,13 +1,18 @@
 import { urlRoute } from "../url-routes.js";
 import pageWorkshop from "../page-script/show-workshop.js";
+import { environment } from "../api/enviroment.js";
 
 export default async function createCardWorkshop(data, user_workshops_started) {
     const templateCard = document.createElement('div');
     templateCard.className = 'card-workshop';
 
     const img = document.createElement('img');
-    img.className = 'img-card-workshop'
-    img.src = `${data.image}`;
+    img.className = 'img-card-workshop';
+    const image = data.image;
+    const imageFormated = image.replace('uploads\\', '');
+    const host = environment.image;
+    img.src =  `${host}/static/${imageFormated}`;
+    console.log(img.src);
 
     const h3 = document.createElement('h3');
     h3.innerText = `${data.title}`;
@@ -33,7 +38,9 @@ export default async function createCardWorkshop(data, user_workshops_started) {
     iconDate.src = 'assets/img/icon-date.svg';
     
     const pDate = document.createElement('p');
-    pDate.innerText = `${data.start_date}`;
+    const date = new Date(data.start_date)
+    const dateFormated = date.toISOString().split('T')[0];
+    pDate.innerText = `${dateFormated}`;
 
     const btnCard = document.createElement('button'); // antes era um a
     btnCard.dataset.idWorkshop = data.id;

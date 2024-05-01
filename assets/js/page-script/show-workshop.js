@@ -1,11 +1,11 @@
-import { getWorkshop } from "../../../mocks/mock-workshop.js";
+import getWorkshop from "../api/workshop/getWorkshop.js";
 import contentWorkshop from "../components/content-workshop.js";
 import overviewWorkshop from "../components/overview-workshop.js";
 
-export default async function pageWorkshop(idWorkshoop){
+export default async function pageWorkshop(idWorkshop){
     const sectionHeaderWorkshop = document.getElementById('section-header-workshop');
         
-    const workshop = await getWorkshop(Number(idWorkshoop));
+    const workshop = await getWorkshop(idWorkshop);
 
     const headerContainer = document.createElement('div');
     headerContainer.id = 'header-container';

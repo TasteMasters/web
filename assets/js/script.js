@@ -19,6 +19,7 @@ export default async function createTemplate(page, content, idWorkshoop) {
   if (!urlBlackList.includes(page)) body.appendChild(footerElement);
 
   handlePageContent(page, idWorkshoop);
+  
   //Animations
   if (!urlBlackList.includes(page)) footerAnimation();
   if (!urlBlackList.includes(page)) menuMobile();

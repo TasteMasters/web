@@ -8,10 +8,10 @@ export default async function contentWorkshop(contentWorkshop, workshop) {
 
     await accordionIngredients(contentWorkshop, workshop.ingredients);
 
-    const topics = workshop.topics;
+    /* const topics = workshop.topics;
     topics.forEach( async (topic) => {
         await accordionTopics(contentWorkshop, topic);
-    });
+    }); */
 
     const buttonCompleteTopic = document.createElement('button');
     buttonCompleteTopic.innerText = 'Concluir Workshop';

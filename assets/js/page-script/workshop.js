@@ -5,8 +5,11 @@ import createCardWorkshop from "../components/card-workshop.js";
 import workshopInformation from "../components/workshop-information.js";
 import createSectionMyWorkshop from "../components/my-workshops-section.js";
 import createSectionStartedWorkshop from "../components/started-workshops-section.js";
+import listWorkshops from "../api/workshop/listWorkshops.js";
 
 export default async function workshop(){
+    const workshops = await listWorkshops();
+
     // Workshops started
     const user = await getUser(1);
     const startedWorkshops = await user.workshops_started;
@@ -46,8 +49,7 @@ export default async function workshop(){
     // Cards workshops
     const sectionCards = document.getElementById('show-workshops-cards');
 
-    const result = await getAllWorkshops();
-    result.forEach(async (element) => {
+    workshops.forEach(async (element) => {
         const card = await createCardWorkshop(element, user.workshops_started);
         sectionCards.appendChild(card);
     });

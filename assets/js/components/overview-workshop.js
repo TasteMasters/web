@@ -23,16 +23,16 @@ export default async function overviewWorkshop(contentWorkshop, workshop) {
 
     const user = await getUser(workshop.creator_id);
     const creatorImageDiv = document.createElement('div');
-    creatorImageDiv.style.background = `url(${user.image}) no-repeat`;
+    // creatorImageDiv.style.background = `url(${user.image}) no-repeat`;
     creatorImageDiv.style.backgroundSize = 'contain'; // Define o tamanho da imagem de fundo
     creatorImageDiv.style.backgroundPosition = 'center';
     creatorImageDiv.id = 'image-workshop-creator';
 
     const creatorDetailsDiv = document.createElement('div');
     const creatorNameHeading = document.createElement('h3');
-    creatorNameHeading.textContent = user.name;
+    // creatorNameHeading.textContent = user.name;
     const creatorProfessionParagraph = document.createElement('p');
-    creatorProfessionParagraph.textContent = user.specialization;
+    // creatorProfessionParagraph.textContent = user.specialization;
     creatorDetailsDiv.appendChild(creatorNameHeading);
     creatorDetailsDiv.appendChild(creatorProfessionParagraph);
 
@@ -42,7 +42,7 @@ export default async function overviewWorkshop(contentWorkshop, workshop) {
     // Adicionar descrição do criador
     const creatorDescriptionDiv = document.createElement('div');
     const creatorDescriptionParagraph = document.createElement('p');
-    creatorDescriptionParagraph.textContent = user.description;
+    // creatorDescriptionParagraph.textContent = user.description;
     creatorDescriptionDiv.appendChild(creatorDescriptionParagraph);
 
     section2.appendChild(creatorInfoDiv);
