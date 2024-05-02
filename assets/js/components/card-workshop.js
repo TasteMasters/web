@@ -12,7 +12,6 @@ export default async function createCardWorkshop(data, user_workshops_started) {
     const imageFormated = image.replace('uploads\\', '');
     const host = environment.image;
     img.src =  `${host}/static/${imageFormated}`;
-    console.log(img.src);
 
     const h3 = document.createElement('h3');
     h3.innerText = `${data.title}`;
