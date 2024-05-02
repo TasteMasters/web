@@ -628,6 +628,54 @@ p#direitos-tastemaster {
   margin-top: -0.8rem;
 }
 
+@media (max-width: 850px) {
+  #about-section {
+    background: url(../img/logo.svg) no-repeat;
+    background-position: top left;
+    background-size: 25%;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-direction: column;
+  }
+
+  #img-footer-logo {
+    display: none;
+  }
+
+  #about-section p {
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  #direitos-tastemaster {
+    display: none;
+  }
+
+
+  #icons-section {
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  #icons-section hr {
+    display: none;
+  }
+
+  #about-section ul {
+    position: absolute;
+    width: 100vw !important;
+    margin-top: 5rem;
+    padding-bottom: 1rem;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background: #dadada;
+  }
+}
+
 /* ==================home================== */
 #home-section {
   width: 100vw;
