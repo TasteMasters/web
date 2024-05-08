@@ -42,7 +42,6 @@ nav {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  margin: 0 1rem;
   align-items: center;
 }
 
@@ -58,11 +57,36 @@ header img {
 
 #navigation {
   display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  gap: 3rem;
+  padding-right: 2rem;
+}
+
+.btn-exit {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  transition: .2s;
+}
+
+.btn-exit:hover {
+  border-bottom: 2px solid var(--color1);
+  padding-bottom: .2rem;
+}
+
+.btn-exit:hover::before {
+  content: 'Encerrar sessão?';
   margin-right: 1rem;
-  list-style: none;
+  color: var(--color1);
+}
+.btn-exit img {
+  width: 2rem;
 }
 
 #img-user {
@@ -146,8 +170,11 @@ nav a {
   padding: 1rem;
 }
 
-/*----- Mobile -----*/
 @media (max-width: 850px) {
+  #navigation {
+    margin-right: 1rem;
+  }
+
   .navigation-desktop {
     display: none;
   }
@@ -160,6 +187,14 @@ nav a {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .btn-exit {
+    width: 100%;
+  }
+  
+  .btn-exit:hover::before {
+    content: '';
   }
 }
 
@@ -317,14 +352,13 @@ nav a {
 }
 
 @media (max-width: 900px) {
-  #login-form button {
+  #login_form button {
     width: fit-content;
   }
-}
 
-@media (max-width: 900px) {
   #section-login {
     flex-direction: column;
+    width: 100%;
   }
 
   #wellcome-content {
