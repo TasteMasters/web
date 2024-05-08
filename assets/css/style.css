@@ -42,7 +42,6 @@ nav {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  margin: 0 1rem;
   align-items: center;
 }
 
@@ -58,11 +57,36 @@ header img {
 
 #navigation {
   display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  gap: 3rem;
+  padding-right: 2rem;
+}
+
+.btn-exit {
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  transition: .2s;
+}
+
+.btn-exit:hover {
+  border-bottom: 2px solid var(--color1);
+  padding-bottom: .2rem;
+}
+
+.btn-exit:hover::before {
+  content: 'Encerrar sessão?';
   margin-right: 1rem;
-  list-style: none;
+  color: var(--color1);
+}
+.btn-exit img {
+  width: 2rem;
 }
 
 #img-user {
@@ -146,8 +170,11 @@ nav a {
   padding: 1rem;
 }
 
-/*----- Mobile -----*/
 @media (max-width: 850px) {
+  #navigation {
+    margin-right: 1rem;
+  }
+
   .navigation-desktop {
     display: none;
   }
@@ -160,6 +187,14 @@ nav a {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .btn-exit {
+    width: 100%;
+  }
+  
+  .btn-exit:hover::before {
+    content: '';
   }
 }
 
@@ -325,11 +360,10 @@ nav a {
   #login-form button {
     width: fit-content;
   }
-}
 
-@media (max-width: 900px) {
   #section-login {
     flex-direction: column;
+    width: 100%;
   }
 
   #wellcome-content {
@@ -631,6 +665,54 @@ p#direitos-tastemaster {
   font-size: 0.7rem;
   text-align: right;
   margin-top: -0.8rem;
+}
+
+@media (max-width: 850px) {
+  #about-section {
+    background: url(../img/logo.svg) no-repeat;
+    background-position: top left;
+    background-size: 25%;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-direction: column;
+  }
+
+  #img-footer-logo {
+    display: none;
+  }
+
+  #about-section p {
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  #direitos-tastemaster {
+    display: none;
+  }
+
+
+  #icons-section {
+    justify-content: center;
+    gap: 3rem;
+  }
+
+  #icons-section hr {
+    display: none;
+  }
+
+  #about-section ul {
+    position: absolute;
+    width: 100vw !important;
+    margin-top: 5rem;
+    padding-bottom: 1rem;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background: #dadada;
+  }
 }
 
 /* ==================home================== */
@@ -1042,14 +1124,19 @@ p#direitos-tastemaster {
 }
 
 #section-banner {
+  background: url(../img/banner-workshop.svg) no-repeat;
+  background-size: cover;
+  background-position: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
-  height: 15vh;
+  width: 100vw;
+  margin-left: -2rem;
+  padding: 0 2rem;
   position: relative;
   z-index: 2;
   color: var(--color7);
+  padding-bottom: 4rem;
 }
 
 #section-banner h1 {
@@ -1064,6 +1151,8 @@ p#direitos-tastemaster {
 }
 
 #section-banner form {
+  position: absolute;
+  top: 185px;
   width: fit-content;
   display: flex;
   align-items: center;
@@ -1093,13 +1182,6 @@ p#direitos-tastemaster {
   margin-left: 1rem;
 }
 
-#section-banner form select {
-  padding: 0.2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
 #section-banner form button {
   padding: 0.2rem 1rem;
   border: 1px solid;
@@ -1124,7 +1206,7 @@ p#direitos-tastemaster {
   position: relative;
   z-index: 2;
   min-height: 75vh;
-  margin: 10vh 0;
+  margin-bottom: 5rem;
 }
 
 #show-workshop aside {
@@ -1140,6 +1222,167 @@ p#direitos-tastemaster {
 
 #show-workshop aside section h1 {
   font-size: 1.2rem;
+}
+
+@media (max-width: 1000px) {
+  #show-workshop {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  #show-workshops-cards {
+    width: 100% !important;
+    border-bottom: 2px solid var(--color5);
+    padding-bottom: 1rem;
+  }
+
+  .card-workshop {
+    width: 30% !important;
+    transform: scale(.9);
+  }
+
+  aside {
+    width: 100% !important;
+    flex-direction: row !important;
+    gap: 0;
+  }
+
+  #workshops-started {
+    width: 50%;
+    background: var(--color1);
+    border-radius: 1rem;
+    height: fit-content;
+  }
+
+  #workshops-started h1 {
+    color: var(--color7);
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem;
+  }
+
+  .workshop-started-card {
+    background: var(--color7);
+  }
+
+  #my-workshops {
+    width: 50%;
+    background: var(--color2);
+    border-radius: 1rem;
+    height: fit-content;
+  }
+
+  #my-workshops h1 {
+    color: var(--color7);
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  #section-banner h1, #section-banner span {
+    font-size: 2.2rem !important;
+  }
+
+
+  #show-workshop {
+    align-items: center;
+  }
+
+  aside {
+    width: 80% !important;
+    align-items: center;
+    flex-direction: column !important;
+    gap: 2rem;
+  }
+
+  #workshops-started {
+    width: 100%;
+  }
+
+  .workshop-started-card p {
+    font-size: 1.1rem;
+  }
+
+  #my-workshops {
+    width: 100%;
+  }
+
+  #my-workshops p {
+    font-size: 1.1rem;
+  }
+
+  .my-workshop-card ul {
+    gap: 2rem !important;
+  }
+
+  .my-workshop-card img {
+    width: 1.5rem;
+  }
+}
+
+@media (max-width: 720px) {
+  #section-banner h1, #section-banner span {
+    text-align: center;
+  }
+
+  #section-banner {
+    align-items: center;
+  }
+
+  #section-banner form input {
+    width: 100% !important;
+  }
+
+  #show-workshops-cards {
+    justify-content: center;
+  }
+
+  .card-workshop {
+    width: 45% !important;
+  }
+
+  .card-workshop:hover {
+    transform: scale(1.01);
+    background: var(--color3);
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 550px) {
+  #section-banner form {
+    top: 180px;
+    width: 90%;
+    justify-content: space-between;
+  }
+
+  .card-workshop {
+    width: 80% !important;
+  }
+
+  aside {
+    width: 100% !important;
+  }
+
+  #content-my-workshops {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .my-workshop-card {
+    flex-direction: column;
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .card-workshop {
+    width: 90% !important;
+  }
+
+  #div-btn-my-ws img {
+    display: none;
+  }
 }
 
 /* Workshops iniciados */
@@ -1252,80 +1495,6 @@ p#direitos-tastemaster {
   transform: scale(1.05);
 }
 
-/* Efeito modal (Deletar workshop) */
-#effectModal {
-  position: fixed;
-  overflow-y: scroll;
-  z-index: 100;
-  width: 100vw;
-  min-height: 100vh;
-  top: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#modal-content {
-  position: absolute;
-  padding: 2rem;
-  background: var(--color7);
-  border-radius: 1rem;
-  overflow-y: scroll;
-}
-
-#modal-content p {
-  font-size: 1.5rem;
-  font-family: var(--font-title);
-  margin-bottom: 2rem;
-}
-
-#div-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5rem;
-  margin-top: 4rem;
-  margin-bottom: 2rem;
-}
-
-#btn-confirm {
-  padding: .5rem 2rem;
-  border-radius: .5rem;
-  outline: none;
-  border: none;
-  background: var(--color5);
-  color: var(--color7);
-  transition: .5s;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-#btn-confirm:hover {
-  background: var(--color1);
-  transform: scale(1.1);
-}
-
-#btn-cancel {
-  padding: .5rem 2rem;
-  border-radius: .5rem;
-  outline: none;
-  border: 1px solid var(--color6);
-  color: var(--color6);
-  transition: .5s;
-  cursor: pointer;
-}
-
-#btn-cancel:hover {
-  transform: scale(1.1);
-}
-
-#modal-content span {
-  display: block;
-  text-align: center;
-  margin-top: .5rem;
-}
-
 /* Cards workshops */
 #show-workshops-cards {
   width: 70%;
@@ -1406,6 +1575,80 @@ p#direitos-tastemaster {
 
 .card-workshop p {
   text-align: justify;
+}
+
+/* Efeito modal (Deletar workshop) */
+#effectModal {
+  position: fixed;
+  overflow-y: scroll;
+  z-index: 100;
+  width: 100vw;
+  min-height: 100vh;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal-content {
+  position: absolute;
+  padding: 2rem;
+  background: var(--color7);
+  border-radius: 1rem;
+  overflow-y: scroll;
+}
+
+#modal-content p {
+  font-size: 1.5rem;
+  font-family: var(--font-title);
+  margin-bottom: 2rem;
+}
+
+#div-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+#btn-confirm {
+  padding: .5rem 2rem;
+  border-radius: .5rem;
+  outline: none;
+  border: none;
+  background: var(--color5);
+  color: var(--color7);
+  transition: .5s;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#btn-confirm:hover {
+  background: var(--color1);
+  transform: scale(1.1);
+}
+
+#btn-cancel {
+  padding: .5rem 2rem;
+  border-radius: .5rem;
+  outline: none;
+  border: 1px solid var(--color6);
+  color: var(--color6);
+  transition: .5s;
+  cursor: pointer;
+}
+
+#btn-cancel:hover {
+  transform: scale(1.1);
+}
+
+#modal-content span {
+  display: block;
+  text-align: center;
+  margin-top: .5rem;
 }
 
 /*------- Efeito modal (criar workshop) -------------*/
@@ -1511,7 +1754,6 @@ input[type="file"]::placeholder {
   content: "Selecionar imagem" !important;
 }
 
-/* Botão "Chose file" */
 #customInputFile::-webkit-file-upload-button {
   display: none;
 }
@@ -1588,7 +1830,6 @@ input[type="file"]::placeholder {
   color: var(--color7);
 }
 
-/* ------------TOPICS---------------*/
 #div-topic-inputs {
   width: 25vw;
 }
@@ -1641,7 +1882,6 @@ input[type="file"]::placeholder {
   width: fit-content;
 }
 
-/*----------- BUTTON SUBMIT ---------*/
 #div-button-submit {
   grid-area: div-button;
   display: flex;
@@ -1694,7 +1934,7 @@ input[type="file"]::placeholder {
   font-weight: 600;
 }
 
-/*======== show-workshop ==================================*/
+/*======== Show Workshop ==================================*/
  #show-workshop-section {
   display: flex;
   flex-direction: column;
