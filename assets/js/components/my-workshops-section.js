@@ -72,7 +72,7 @@ export default function createSectionMyWorkshop(id) {
 
   // Criando o elemento de contêiner e adicionando o workshopCard
   const workshopsStartedContainer = document.createElement("div");
-  workshopsStartedContainer.id = "workshops-started";
+  workshopsStartedContainer.className = "card-my-workshops";
   workshopsStartedContainer.appendChild(workshopCard);
 
   return workshopsStartedContainer;

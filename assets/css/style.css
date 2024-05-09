@@ -1224,167 +1224,6 @@ p#direitos-tastemaster {
   font-size: 1.2rem;
 }
 
-@media (max-width: 1000px) {
-  #show-workshop {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  #show-workshops-cards {
-    width: 100% !important;
-    border-bottom: 2px solid var(--color5);
-    padding-bottom: 1rem;
-  }
-
-  .card-workshop {
-    width: 30% !important;
-    transform: scale(.9);
-  }
-
-  aside {
-    width: 100% !important;
-    flex-direction: row !important;
-    gap: 0;
-  }
-
-  #workshops-started {
-    width: 50%;
-    background: var(--color1);
-    border-radius: 1rem;
-    height: fit-content;
-  }
-
-  #workshops-started h1 {
-    color: var(--color7);
-    font-size: 1.5rem !important;
-    margin-bottom: 1rem;
-  }
-
-  .workshop-started-card {
-    background: var(--color7);
-  }
-
-  #my-workshops {
-    width: 50%;
-    background: var(--color2);
-    border-radius: 1rem;
-    height: fit-content;
-  }
-
-  #my-workshops h1 {
-    color: var(--color7);
-    font-size: 1.5rem !important;
-    margin-bottom: 1rem;
-  }
-}
-
-@media (max-width: 800px) {
-  #section-banner h1, #section-banner span {
-    font-size: 2.2rem !important;
-  }
-
-
-  #show-workshop {
-    align-items: center;
-  }
-
-  aside {
-    width: 80% !important;
-    align-items: center;
-    flex-direction: column !important;
-    gap: 2rem;
-  }
-
-  #workshops-started {
-    width: 100%;
-  }
-
-  .workshop-started-card p {
-    font-size: 1.1rem;
-  }
-
-  #my-workshops {
-    width: 100%;
-  }
-
-  #my-workshops p {
-    font-size: 1.1rem;
-  }
-
-  .my-workshop-card ul {
-    gap: 2rem !important;
-  }
-
-  .my-workshop-card img {
-    width: 1.5rem;
-  }
-}
-
-@media (max-width: 720px) {
-  #section-banner h1, #section-banner span {
-    text-align: center;
-  }
-
-  #section-banner {
-    align-items: center;
-  }
-
-  #section-banner form input {
-    width: 100% !important;
-  }
-
-  #show-workshops-cards {
-    justify-content: center;
-  }
-
-  .card-workshop {
-    width: 45% !important;
-  }
-
-  .card-workshop:hover {
-    transform: scale(1.01);
-    background: var(--color3);
-    padding: 1rem;
-  }
-}
-
-@media (max-width: 550px) {
-  #section-banner form {
-    top: 180px;
-    width: 90%;
-    justify-content: space-between;
-  }
-
-  .card-workshop {
-    width: 80% !important;
-  }
-
-  aside {
-    width: 100% !important;
-  }
-
-  #content-my-workshops {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .my-workshop-card {
-    flex-direction: column;
-    gap: 2rem !important;
-  }
-}
-
-@media (max-width: 450px) {
-  .card-workshop {
-    width: 90% !important;
-  }
-
-  #div-btn-my-ws img {
-    display: none;
-  }
-}
-
 /* Workshops iniciados */
 #workshops-started {
   width: 90%;
@@ -1577,6 +1416,167 @@ p#direitos-tastemaster {
   text-align: justify;
 }
 
+@media (max-width: 1000px) {
+  #show-workshop {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  #show-workshops-cards {
+    width: 100% !important;
+    border-bottom: 2px solid var(--color5);
+    padding-bottom: 1rem;
+  }
+
+  .card-workshop {
+    width: 30% !important;
+    transform: scale(.9);
+  }
+
+  aside {
+    width: 100% !important;
+    flex-direction: row !important;
+    gap: 0;
+  }
+
+  #workshops-started {
+    width: 50%;
+    background: var(--color1);
+    border-radius: 1rem;
+    height: fit-content;
+  }
+
+  #workshops-started h1 {
+    color: var(--color7);
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem;
+  }
+
+  .workshop-started-card {
+    background: var(--color7);
+  }
+
+  #my-workshops {
+    width: 50%;
+    background: var(--color2);
+    border-radius: 1rem;
+    height: fit-content;
+  }
+
+  #my-workshops h1 {
+    color: var(--color7);
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 800px) {
+  #section-banner h1, #section-banner span {
+    font-size: 2.2rem !important;
+  }
+
+
+  #show-workshop {
+    align-items: center;
+  }
+
+  aside {
+    width: 80% !important;
+    align-items: center;
+    flex-direction: column !important;
+    gap: 2rem;
+  }
+
+  #workshops-started {
+    width: 100%;
+  }
+
+  .workshop-started-card p {
+    font-size: 1.1rem;
+  }
+
+  #my-workshops {
+    width: 100%;
+  }
+
+  #my-workshops p {
+    font-size: 1.1rem;
+  }
+
+  .my-workshop-card ul {
+    gap: 2rem !important;
+  }
+
+  .my-workshop-card img {
+    width: 1.5rem;
+  }
+}
+
+@media (max-width: 720px) {
+  #section-banner h1, #section-banner span {
+    text-align: center;
+  }
+
+  #section-banner {
+    align-items: center;
+  }
+
+  #section-banner form input {
+    width: 100% !important;
+  }
+
+  #show-workshops-cards {
+    justify-content: center;
+  }
+
+  .card-workshop {
+    width: 45% !important;
+  }
+
+  .card-workshop:hover {
+    transform: scale(1.01);
+    background: var(--color3);
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 550px) {
+  #section-banner form {
+    top: 180px;
+    width: 90%;
+    justify-content: space-between;
+  }
+
+  .card-workshop {
+    width: 80% !important;
+  }
+
+  aside {
+    width: 100% !important;
+  }
+
+  #content-my-workshops {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .my-workshop-card {
+    flex-direction: column;
+    gap: 2rem !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .card-workshop {
+    width: 90% !important;
+  }
+
+  #div-btn-my-ws img {
+    display: none;
+  }
+}
+
 /* Efeito modal (Deletar workshop) */
 #effectModal {
   position: fixed;
@@ -1651,7 +1651,19 @@ p#direitos-tastemaster {
   margin-top: .5rem;
 }
 
-/*------- Efeito modal (criar workshop) -------------*/
+@media (max-width: 650px) {
+  #modal-content {
+    width: 85vw;
+  }
+}
+
+@media (max-width: 450px) {
+  #modal-content {
+    width: 95vw;
+  }
+}
+
+/*------- Efeito modal (criar e editar workshop) -------------*/
 #modal-header-content {
   display: flex;
   justify-content: space-between;
@@ -1932,6 +1944,31 @@ input[type="file"]::placeholder {
 #form-modal fieldset label {
   font-size: .8rem;
   font-weight: 600;
+}
+
+@media (max-width: 650px) {
+  #form-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  #div-topic-inputs {
+    width: 60vw;
+  }
+
+  #form-modal fieldset:hover {
+    border: 1.5px solid var(--color1);
+    box-shadow: none;
+    transform: scale(1);
+  }
+
+  #form-modal fieldset {
+    box-shadow: none;
+    border: 1px solid var(--color5);
+    border-radius: 1rem;
+    transition: none;
+  }
 }
 
 /*======== Show Workshop ==================================*/

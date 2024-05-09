@@ -7,7 +7,7 @@ export default function addIngredientInput(container, value) {
     ingredientInput.required = true;
     ingredientInput.name = 'ingredient';
     if (value !== null) {
-        ingredientInput.value = value;
+        ingredientInput.value = value || '';
     }
 
     const removeButton = document.createElement('button');
