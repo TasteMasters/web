@@ -1981,7 +1981,7 @@ input[type="file"]::placeholder {
 #section-header-workshop {
   background: url('../img/banner-open-workshop.svg') no-repeat;
   background-size: cover;
-  height: 30vh;
+  height: 250px;
   margin-top: 10vh;
   width: 100%;
   padding: 1rem 2rem 0 2rem;
@@ -2047,6 +2047,17 @@ input[type="file"]::placeholder {
   padding: 2rem;
 }
 
+#content-overview {
+  display: flex;
+  gap: 1rem;
+}
+
+#content-topics {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ----- Overview - Show Workshop ----- */
 #section-description-workshop {
   width: 60%;
   margin-right: 2rem;
@@ -2060,7 +2071,7 @@ input[type="file"]::placeholder {
 #section-workshop-creator {
   width: 40%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column !important;
   gap: 1rem;
   padding-right: 2rem;
 }
@@ -2072,7 +2083,6 @@ input[type="file"]::placeholder {
 #creator-info-div {
   display: flex;
   gap: 1rem;
-  height: 15%;
 }
 
 #creator-info-div h3 {
@@ -2087,11 +2097,77 @@ input[type="file"]::placeholder {
 }
 
 #image-workshop-creator {
-  width: 20%;
-  height: 100%;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
 }
 
+@media (max-width: 850px) {
+  #content-overview {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  #section-description-workshop {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  #section-description-workshop p {
+    width: 100%;
+  }
+
+  #section-workshop-creator {
+    display: flex;
+    width: 100%;
+    padding-right: 0;
+  }
+
+  #creator-info-div {
+    width: 100%; 
+  }
+
+  #creator-details-div {
+    width: 50%;
+  }
+
+  #image-workshop-creator {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 500px) {
+  #section-header-workshop {
+    align-items: center;
+  }
+
+  #section-header-workshop h1 {
+    font-size: 2rem;
+    margin-top: 0.5rem !important;
+  }
+
+  #section-header-workshop ul {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 450px) {
+  #section-header-workshop {
+    align-items: center;
+    min-height: 280px;
+  }
+
+  #image-workshop-creator {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+}
+
+/* ----- Content - Show Workshop ----- */
 .accordion-item {
   border-bottom: 1px solid var(--color5);
   width: 60%;
@@ -2148,8 +2224,8 @@ input[type="file"]::placeholder {
 }
 
 .content-topic iframe {
-  width: 90%;
-  height: 50vh;
+  width: 100%;
+  height: 400px;
 }
 
 #workshop-content button {
@@ -2172,8 +2248,46 @@ input[type="file"]::placeholder {
     text-align: center;
 }
 
-/* ==============profile================ */
+@media (max-width: 1100px) {
+  #content-topics iframe {
+    height: 330px;
+  }
+}
 
+@media (max-width: 850px) {
+  #content-topics {
+    display: flex;
+    align-items: center;
+  }
+
+  .accordion-item {
+    width: 85%;
+  }
+}
+
+@media (max-width: 650px) {
+  .accordion-item {
+    width: 100% !important;
+  }
+
+  #content-topics iframe {
+    height: 300px;
+  }
+}
+
+@media (max-width: 500px) {
+  #content-topics iframe {
+    height: 230px;
+  }
+}
+
+@media (max-width: 500px) {
+  #content-topics iframe {
+    height: 170px;
+  }
+}
+
+/* ==============profile================ */
 #profile-container{
     margin-top: 10vh;
     width: 100%;
