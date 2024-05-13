@@ -1123,7 +1123,7 @@ p#direitos-tastemaster {
   z-index: 1;
 }
 
-#section-banner {
+.section-banner {
   background: url(../img/banner-workshop.svg) no-repeat;
   background-size: cover;
   background-position: 100%;
@@ -1139,18 +1139,18 @@ p#direitos-tastemaster {
   padding-bottom: 4rem;
 }
 
-#section-banner h1 {
+.section-banner h1 {
   font-family: var(--font-title);
   margin: 1.5rem 0;
   font-size: 2.5rem;
 }
 
-#section-banner h1 span {
+.section-banner h1 span {
   font-size: 2.5rem;
   display: block;
 }
 
-#section-banner form {
+.section-banner form {
   position: absolute;
   top: 185px;
   width: fit-content;
@@ -1162,12 +1162,12 @@ p#direitos-tastemaster {
   border: 3px solid rgba(0, 0, 0, 0.1);
 }
 
-#section-banner form div {
+.section-banner form div {
   display: flex;
   align-items: center;
 }
 
-#section-banner form div input {
+.section-banner form div input {
   border: none;
   width: 25vw;
   border-bottom: 1px solid;
@@ -1177,12 +1177,12 @@ p#direitos-tastemaster {
   margin-left: 1rem;
 }
 
-#section-banner form img {
+.section-banner form img {
   width: 1.5rem;
   margin-left: 1rem;
 }
 
-#section-banner form button {
+.section-banner form button {
   padding: 0.2rem 1rem;
   border: 1px solid;
   outline: none;
@@ -1194,7 +1194,7 @@ p#direitos-tastemaster {
   border: 2px solid var(--color5);
 }
 
-#section-banner form button:hover {
+.section-banner form button:hover {
   border: 2px solid var(--color5);
   background: var(--color7);
   color: var(--color5);
@@ -1471,7 +1471,7 @@ p#direitos-tastemaster {
 }
 
 @media (max-width: 800px) {
-  #section-banner h1, #section-banner span {
+  .section-banner h1, .section-banner span {
     font-size: 2.2rem !important;
   }
 
@@ -1513,15 +1513,15 @@ p#direitos-tastemaster {
 }
 
 @media (max-width: 720px) {
-  #section-banner h1, #section-banner span {
+  .section-banner h1, .section-banner span {
     text-align: center;
   }
 
-  #section-banner {
+  .section-banner {
     align-items: center;
   }
 
-  #section-banner form input {
+  .section-banner form input {
     width: 100% !important;
   }
 
@@ -1541,7 +1541,7 @@ p#direitos-tastemaster {
 }
 
 @media (max-width: 550px) {
-  #section-banner form {
+  .section-banner form {
     top: 180px;
     width: 90%;
     justify-content: space-between;
@@ -2841,4 +2841,12 @@ input[type="file"]::placeholder {
         scale: 1.05;
         cursor: pointer;
     }
+}
+
+/* ============== Receitas ================ */
+#revenues-section {
+  width: 100vw;
+  min-height: 90vh;
+  margin-top: 10vh;
+  padding: 0 2rem;
 }
