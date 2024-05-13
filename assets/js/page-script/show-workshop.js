@@ -1,16 +1,17 @@
+// import getWorkshop from "../api/workshop/getWorkshop.js";
 import { getWorkshop } from "../../../mocks/mock-workshop.js";
 import contentWorkshop from "../components/content-workshop.js";
 import overviewWorkshop from "../components/overview-workshop.js";
 
-export default async function pageWorkshop(idWorkshoop){
+export default async function pageWorkshop(idWorkshop){
     const sectionHeaderWorkshop = document.getElementById('section-header-workshop');
         
-    const workshop = await getWorkshop(Number(idWorkshoop));
+    // const workshop = await getWorkshop(idWorkshop);
+    const workshop = await getWorkshop(1);
+    console.log(workshop);
 
     const headerContainer = document.createElement('div');
     headerContainer.id = 'header-container';
-
-    const sectionContentWorkshop = document.getElementById('workshop-content');
 
     const headerTitle = document.createElement('h1');
     headerTitle.innerText = workshop.title;
@@ -45,19 +46,24 @@ export default async function pageWorkshop(idWorkshoop){
     buttonDiv.appendChild(buttonOverview);
     buttonDiv.appendChild(buttonContent);
 
+    const sectionContentWorkshop = document.getElementById('workshop-content');
+    const content = document.createElement('section');
+    sectionContentWorkshop.appendChild(content);
+
     buttonOverview.addEventListener('click', async ()=>{
         buttonOverview.classList.add('button-activated');
         buttonContent.classList.remove('button-activated');
-        sectionContentWorkshop.innerHTML = '';
-        await overviewWorkshop(sectionContentWorkshop, workshop);
+        content.innerHTML = '';
+        content.id = 'content-overview';
+        await overviewWorkshop(content, workshop);
     });
 
     buttonContent.addEventListener('click', async ()=>{
         buttonContent.classList.add('button-activated');
         buttonOverview.classList.remove('button-activated');
-
-        sectionContentWorkshop.innerHTML = '';
-        await contentWorkshop(sectionContentWorkshop, workshop);
+        content.innerHTML = '';
+        content.id = 'content-topics';
+        await contentWorkshop(content, workshop);
     });
 
     buttonOverview.click();

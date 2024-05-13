@@ -1,5 +1,5 @@
-// import workshop from "./page-script/workshop.js";
-// import pageWorkshop from "./page-script/show-workshop.js";
+import workshop from "./page-script/workshop.js";
+import pageWorkshop from "./page-script/show-workshop.js";
 
 import login from "./page-script/login.js";
 import registrar from "./page-script/registrar.js";
@@ -15,10 +15,10 @@ export default async function handlePageContent(page, idWorkshoop) {
       registrar();
       break;
     case "workshops":
-      //workshop();
+      workshop();
       break;
     case "show-workshop":
-      //pageWorkshop(idWorkshoop);
+      pageWorkshop(idWorkshoop);
       break;
   }
 }

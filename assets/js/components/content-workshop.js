@@ -2,10 +2,6 @@ import accordionIngredients from "./accordion-ingredients.js";
 import accordionTopics from "./accordion-topics.js";
 
 export default async function contentWorkshop(contentWorkshop, workshop) {
-    contentWorkshop.style.display = 'flex';
-    contentWorkshop.style.flexDirection = 'column';
-    contentWorkshop.style.gap = '0';
-
     await accordionIngredients(contentWorkshop, workshop.ingredients);
 
     const topics = workshop.topics;

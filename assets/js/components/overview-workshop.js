@@ -1,20 +1,14 @@
 import { getUser } from "../../../mocks/user.js";
 
 export default async function overviewWorkshop(contentWorkshop, workshop) {
-    contentWorkshop.style.display = 'flex';
-    contentWorkshop.style.flexDirection = 'row';
-    contentWorkshop.style.gap = '1rem';
-    
     const section = document.createElement('section');
 
-    // Criar a primeira seção com um parágrafo
     const section1 = document.createElement('section');
     section1.id = 'section-description-workshop';
     const paragraph1 = document.createElement('p');
     paragraph1.textContent = workshop.description;
     section1.appendChild(paragraph1);
 
-    // Criar a segunda seção com a imagem do criador e informações sobre o criador
     const section2 = document.createElement('section');
     section2.id = 'section-workshop-creator'
 
@@ -29,6 +23,7 @@ export default async function overviewWorkshop(contentWorkshop, workshop) {
     creatorImageDiv.id = 'image-workshop-creator';
 
     const creatorDetailsDiv = document.createElement('div');
+    creatorDetailsDiv.id = 'creator-details-div';
     const creatorNameHeading = document.createElement('h3');
     creatorNameHeading.textContent = user.name;
     const creatorProfessionParagraph = document.createElement('p');
