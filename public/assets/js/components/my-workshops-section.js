@@ -1,11 +1,10 @@
-import { getWorkshop } from "../../../mocks/mock-workshop.js";
-import { getUser } from "../../../mocks/user.js";
+import { getUser } from "../api/user/getUser.js";
 import { urlRoute } from "../url-routes.js";
 import { addModalDelete } from "./modal-delete-ws.js";
 import workshopInformation from "./workshop-information.js";
 
-export default function createSectionMyWorkshop(id) {
-  const data = getWorkshop(id);
+export default function createSectionMyWorkshop(data) {
+  const { id } = data;
 
   // Criando os elementos do template
   const workshopCard = document.createElement("div");
@@ -23,8 +22,8 @@ export default function createSectionMyWorkshop(id) {
   deleteIcon.classList.add("deleteWs");
   deleteIcon.dataset.idWorkshop = id;
   deleteIcon.alt = "Delete workshop";
-  deleteIcon.addEventListener('click', ()=> {
-    addModalDelete(deleteIcon.dataset.idWorkshop)
+  deleteIcon.addEventListener("click", () => {
+    addModalDelete(deleteIcon.dataset.idWorkshop);
   });
 
   const editIcon = document.createElement("img");
@@ -32,10 +31,10 @@ export default function createSectionMyWorkshop(id) {
   editIcon.classList.add("EditWs");
   editIcon.dataset.idWorkshop = id;
   editIcon.alt = "Edit workshop";
-  editIcon.addEventListener('click', async ()=> {
-    const user = await getUser(1);
-    const modalEditWS = await workshopInformation('edit', user, Number(editIcon.dataset.idWorkshop));
-    const body = document.querySelector('body');
+  editIcon.addEventListener("click", async () => {
+    const user = await getUser(data.creator_id);
+    const modalEditWS = await workshopInformation("edit", user, id);
+    const body = document.querySelector("body");
     body.appendChild(modalEditWS);
   });
 
@@ -46,12 +45,11 @@ export default function createSectionMyWorkshop(id) {
   moreIcon.classList.add("OpenWs");
   moreIcon.dataset.idWorkshop = id;
   moreIcon.alt = "Open workshop";
-  workshopLink.appendChild(moreIcon)
-  moreIcon.addEventListener('click', (event) => {
+  workshopLink.appendChild(moreIcon);
+  moreIcon.addEventListener("click", (event) => {
     event.preventDefault();
-    urlRoute('/show-workshop', moreIcon.dataset.idWorkshop);
+    urlRoute("/show-workshop", moreIcon.dataset.idWorkshop);
   });
-
 
   const deleteLi = document.createElement("li");
   deleteLi.appendChild(deleteIcon);

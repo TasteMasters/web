@@ -1,79 +1,85 @@
-// import getWorkshop from "../api/workshop/getWorkshop.js";
-import { getWorkshop } from "../../../mocks/mock-workshop.js";
+import { AuthController } from "../api/auth/auth.controller.js";
+import getWorkshop from "../api/workshop/getWorkshop.js";
 import contentWorkshop from "../components/content-workshop.js";
 import overviewWorkshop from "../components/overview-workshop.js";
+import { urlRoute } from "../url-routes.js";
 
-export default async function pageWorkshop(idWorkshop){
-    const sectionHeaderWorkshop = document.getElementById('section-header-workshop');
-        
-    // const workshop = await getWorkshop(idWorkshop);
-    const workshop = await getWorkshop(1);
-    console.log(workshop);
+export default async function pageWorkshop(idWorkshop) {
+  if (!AuthController.isAuthenticated()) {
+    urlRoute("/login");
+    return;
+  }
 
-    const headerContainer = document.createElement('div');
-    headerContainer.id = 'header-container';
+  const sectionHeaderWorkshop = document.getElementById(
+    "section-header-workshop"
+  );
 
-    const headerTitle = document.createElement('h1');
-    headerTitle.innerText = workshop.title;
+  const workshop = await getWorkshop(idWorkshop);
 
-    const list = document.createElement('ul');
+  const headerContainer = document.createElement("div");
+  headerContainer.id = "header-container";
 
-    const listItem1 = document.createElement('li');
-    const item1Img = document.createElement('img');
-    item1Img.src = 'assets/img/icon-difficulty.svg';
-    const item1Paragraph = document.createElement('p');
-    item1Paragraph.innerText = workshop.difficulty;
-    listItem1.appendChild(item1Img);
-    listItem1.appendChild(item1Paragraph);
+  const headerTitle = document.createElement("h1");
+  headerTitle.innerText = workshop.title;
 
-    const listItem2 = document.createElement('li');
-    const item2Img = document.createElement('img');
-    item2Img.src = 'assets/img/icon-category.svg';
-    const item2Paragraph = document.createElement('p');
-    item2Paragraph.innerText = workshop.category;
-    listItem2.appendChild(item2Img);
-    listItem2.appendChild(item2Paragraph);
+  const list = document.createElement("ul");
 
-    const buttonDiv = document.createElement('div');
-    buttonDiv.id = 'button-container';
+  const listItem1 = document.createElement("li");
+  const item1Img = document.createElement("img");
+  item1Img.src = "/assets/img/icon-difficulty.svg";
+  const item1Paragraph = document.createElement("p");
+  item1Paragraph.innerText = workshop.difficulty;
+  listItem1.appendChild(item1Img);
+  listItem1.appendChild(item1Paragraph);
 
-    const buttonOverview = document.createElement('button');
-    buttonOverview.textContent = 'Visão geral';
+  const listItem2 = document.createElement("li");
+  const item2Img = document.createElement("img");
+  item2Img.src = "/assets/img/icon-category.svg";
+  const item2Paragraph = document.createElement("p");
+  item2Paragraph.innerText = workshop.category;
+  listItem2.appendChild(item2Img);
+  listItem2.appendChild(item2Paragraph);
 
-    const buttonContent = document.createElement('button');
-    buttonContent.textContent = 'Conteúdo';
+  const buttonDiv = document.createElement("div");
+  buttonDiv.id = "button-container";
 
-    buttonDiv.appendChild(buttonOverview);
-    buttonDiv.appendChild(buttonContent);
+  const buttonOverview = document.createElement("button");
+  buttonOverview.textContent = "Visão geral";
 
-    const sectionContentWorkshop = document.getElementById('workshop-content');
-    const content = document.createElement('section');
-    sectionContentWorkshop.appendChild(content);
+  const buttonContent = document.createElement("button");
+  buttonContent.textContent = "Conteúdo";
 
-    buttonOverview.addEventListener('click', async ()=>{
-        buttonOverview.classList.add('button-activated');
-        buttonContent.classList.remove('button-activated');
-        content.innerHTML = '';
-        content.id = 'content-overview';
-        await overviewWorkshop(content, workshop);
-    });
+  buttonDiv.appendChild(buttonOverview);
+  buttonDiv.appendChild(buttonContent);
 
-    buttonContent.addEventListener('click', async ()=>{
-        buttonContent.classList.add('button-activated');
-        buttonOverview.classList.remove('button-activated');
-        content.innerHTML = '';
-        content.id = 'content-topics';
-        await contentWorkshop(content, workshop);
-    });
+  const sectionContentWorkshop = document.getElementById("workshop-content");
+  const content = document.createElement("section");
+  sectionContentWorkshop.appendChild(content);
 
-    buttonOverview.click();
+  buttonOverview.addEventListener("click", async () => {
+    buttonOverview.classList.add("button-activated");
+    buttonContent.classList.remove("button-activated");
+    content.innerHTML = "";
+    content.id = "content-overview";
+    await overviewWorkshop(content, workshop);
+  });
 
-    list.appendChild(listItem1);
-    list.appendChild(listItem2);
+  buttonContent.addEventListener("click", async () => {
+    buttonContent.classList.add("button-activated");
+    buttonOverview.classList.remove("button-activated");
+    content.innerHTML = "";
+    content.id = "content-topics";
+    await contentWorkshop(content, workshop);
+  });
 
-    headerContainer.appendChild(headerTitle);
-    headerContainer.appendChild(list);
+  buttonOverview.click();
 
-    sectionHeaderWorkshop.appendChild(headerContainer);
-    sectionHeaderWorkshop.appendChild(buttonDiv);
+  list.appendChild(listItem1);
+  list.appendChild(listItem2);
+
+  headerContainer.appendChild(headerTitle);
+  headerContainer.appendChild(list);
+
+  sectionHeaderWorkshop.appendChild(headerContainer);
+  sectionHeaderWorkshop.appendChild(buttonDiv);
 }

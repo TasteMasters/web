@@ -7,59 +7,64 @@ import listWorkshops from "../api/workshop/listWorkshops.js";
 import { AuthController } from "../api/auth/auth.controller.js";
 import { getUser } from "../../../mocks/user.js";
 import { urlRoute } from "../url-routes.js";
+import getUserWorkshops from "../api/workshop/getUserWorkshops.js";
 
-export default async function workshop(){
-    const isAuthenticated = AuthController.isAuthenticated();
+export default async function workshop() {
+  const isAuthenticated = AuthController.isAuthenticated();
 
-    if (!isAuthenticated) {
-        urlRoute('/login');
-    }
+  if (!isAuthenticated) {
+    urlRoute("/login");
+    return;
+  }
 
-    if (isAuthenticated) {
-        const workshops = await listWorkshops();
-    
-        // Workshops started
-        const user = await getUser(1);
-        const startedWorkshops = await user.workshops_started;
-    
-        const showWorkshops = document.getElementById("content-started-workshops");
-        showWorkshops.innerHTML = '';
-    
-        startedWorkshops.forEach(async (idWorkshop) => {
-            const card = await createSectionStartedWorkshop(idWorkshop);
-            showWorkshops.appendChild(card);
-        })
-    
-        // My workshops
-        const myWorkshops = user.created_workshops;
-        
-        const sectionWorkshopsCreated = document.getElementById("content-my-workshops");
-        sectionWorkshopsCreated.innerHTML = '';
-    
-        myWorkshops.forEach(async (idWorkshop) => {
-            const card = await createSectionMyWorkshop(idWorkshop);
-            sectionWorkshopsCreated.appendChild(card);
-        });    
-    
-        // Button create workshop
-        const button = buttonCreateWs();
-        button.addEventListener('click', async ()=> {
-            const modalCreateWS = await workshopInformation('create', user);
-    
-            const body = document.querySelector('body');
-            body.appendChild(modalCreateWS);
-        });
-        
-    
-        const sectionMyWorkshops = document.getElementById("my-workshops");
-        sectionMyWorkshops.appendChild(button);
-        
-        // Cards workshops
-        const sectionCards = document.getElementById('show-workshops-cards');
-    
-        workshops.forEach(async (element) => {
-            const card = await createCardWorkshop(element, user.workshops_started);
-            sectionCards.appendChild(card);
-        });
-    }
-};
+  const workshops = await listWorkshops();
+
+  // Workshops started
+  const user = await getUser(1);
+  const startedWorkshops = await user.workshops_started;
+
+  const showWorkshops = document.getElementById("content-started-workshops");
+  showWorkshops.innerHTML = "";
+
+  startedWorkshops.forEach(async (idWorkshop) => {
+    const card = await createSectionStartedWorkshop(idWorkshop);
+    showWorkshops.appendChild(card);
+  });
+
+  // My workshops
+  const myWorkshops = await getUserWorkshops();
+
+  console.log(myWorkshops);
+
+  const sectionWorkshopsCreated = document.getElementById(
+    "content-my-workshops"
+  );
+  sectionWorkshopsCreated.innerHTML = "";
+
+  myWorkshops.forEach(async (idWorkshop) => {
+    const card = await createSectionMyWorkshop(idWorkshop);
+    sectionWorkshopsCreated.appendChild(card);
+  });
+
+  // Button create workshop
+  const button = buttonCreateWs();
+  button.addEventListener("click", async () => {
+    const modalCreateWS = await workshopInformation("create", user);
+
+    const body = document.querySelector("body");
+    body.appendChild(modalCreateWS);
+  });
+
+  const sectionMyWorkshops = document.getElementById("my-workshops");
+  sectionMyWorkshops.appendChild(button);
+
+  // Cards workshops
+  const sectionCards = document.getElementById("show-workshops-cards");
+
+  console.log(workshops);
+
+  workshops.forEach(async (element) => {
+    const card = await createCardWorkshop(element, user.workshops_started);
+    sectionCards.appendChild(card);
+  });
+}

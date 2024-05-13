@@ -1,6 +1,6 @@
 import { environment } from "../enviroment.js";
 
-export default async function listWorkshops() {
+export async function getUser(id) {
   const host = environment.host;
 
   const options = {
@@ -11,7 +11,7 @@ export default async function listWorkshops() {
     credentials: "include",
   };
 
-  const url = `${host}/workshops`;
+  const url = `${host}/users/${id}`;
 
   try {
     const response = await fetch(url, options);
