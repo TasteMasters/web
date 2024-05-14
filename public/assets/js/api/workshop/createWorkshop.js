@@ -1,17 +1,20 @@
 import { environment } from "../enviroment.js";
 
-export default async function listWorkshops() {
+export default async function createWorkshop(data) {
   const host = environment.host;
 
+  console.log(data);
+
   const options = {
-    method: "GET",
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     credentials: "include",
+    body: JSON.stringify(data),
   };
 
-  const url = `${host}/workshops`;
+  const url = `${host}/workshops/`;
 
   try {
     const response = await fetch(url, options);

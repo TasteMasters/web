@@ -1,8 +1,11 @@
 import express from "express";
 import path from "node:path";
+import cors from "cors";
 
 const app = express();
 
+app.use(express.json());
+app.use(cors({ origin: true, credentials: true }));
 app.use("/", express.static(path.resolve("./public")));
 
 app.get("*", (req, res) => {
