@@ -1,10 +1,11 @@
-import workshop from "./page-script/workshop.js";
-import pageWorkshop from "./page-script/show-workshop.js";
-
 import login from "./page-script/login.js";
 import registrar from "./page-script/registrar.js";
+import workshop from "./page-script/workshop.js";
+import pageWorkshop from "./page-script/show-workshop.js";
+import recipes from "./page-script/receitas.js";
+import exibirReceita from "./page-script/exibir-receita.js";
 
-export default async function handlePageContent(page, idWorkshoop) {
+export default async function handlePageContent(page, id) {
   const currentPage = page.replace("/pages/", "").replace(".html", "");
 
   switch (currentPage) {
@@ -18,7 +19,13 @@ export default async function handlePageContent(page, idWorkshoop) {
       workshop();
       break;
     case "show-workshop":
-      pageWorkshop(idWorkshoop);
+      pageWorkshop(id);
+      break;
+    case "receitas":
+      recipes();
+      break;
+    case "exibir-receita":
+      exibirReceita(id);
       break;
   }
 }

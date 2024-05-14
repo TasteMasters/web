@@ -30,13 +30,13 @@ const urlRoutes = {
         title: '',
         description: ''
     },
-    "/workshops": {
-        path: '/pages/workshops.html',
+    "/exibir-receita": {
+        path: '/pages/exibir-receita.html',
         title: '',
         description: ''
     },
-    "/comunidade": {
-        path: '/pages/comunidade.html',
+    "/workshops": {
+        path: '/pages/workshops.html',
         title: '',
         description: ''
     },
@@ -53,16 +53,6 @@ const urlRoutes = {
         title: '',
         description: ''
     },
-    "/dados-perfil": {
-        path: '/pages/dados-perfil.html',
-        title: '',
-        description: ''
-    },
-    "/desafios": {
-        path: '/pages/challenges.html',
-        title: '',
-        description: ''
-    },
     "/receita": {
         path: '/pages/receita.html',
         title: '',
@@ -70,12 +60,13 @@ const urlRoutes = {
     }
 };
 
-const urlRoute = (url, idWorkshoop) => {
+const urlRoute = (url, idWorkshoop, idRecipe) => {
     window.history.pushState({}, "", url);
-    urlLocationHandler(idWorkshoop);
+    const id = idWorkshoop || idRecipe;
+    urlLocationHandler(id);
 };
 
-const urlLocationHandler = async (idWorkshoop) => {
+const urlLocationHandler = async (id) => {
     const location = window.location.pathname;
     if (location.length === 0) {
         location = "/";
@@ -83,7 +74,7 @@ const urlLocationHandler = async (idWorkshoop) => {
 
     const route = urlRoutes[location] || urlRoutes[404];
     const html = await fetch(route.path).then((response) => response.text());
-    createTemplate(route.path, html, idWorkshoop);
+    createTemplate(route.path, html, id);
 };
 
 window.addEventListener('popstate', urlLocationHandler);
