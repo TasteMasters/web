@@ -1,4 +1,4 @@
-import { deleteWorkshop } from "../../../mocks/mock-workshop.js";
+import deleteWorkshop from "../api/workshop/deleteWorkshop.js";
 import { urlLocationHandler } from "../url-routes.js";
 
 function addModalDelete(id) {
@@ -30,7 +30,7 @@ function addModalDelete(id) {
     divMessage.innerHTML = "";
     divMessage.appendChild(message);
 
-    const idWorkshop = Number.parseInt(id);
+    const idWorkshop = id;
     const iddd = 10; // --> ERROR
     const result = await deleteWorkshop(idWorkshop);
     if (result) {
