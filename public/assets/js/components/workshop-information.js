@@ -1,6 +1,7 @@
-import { updateWorkshop } from "../../../mocks/mock-workshop.js";
 import { updateUser } from "../../../mocks/user.js";
+import uploadFiles from "../api/upload-files/uploadFiles.js";
 import createWorkshop from "../api/workshop/createWorkshop.js";
+import editWorkshop from "../api/workshop/editWorkshop.js";
 import getWorkshop from "../api/workshop/getWorkshop.js";
 import { urlLocationHandler } from "../url-routes.js";
 import addIngredientInput from "./input-ingredient.js";
@@ -181,6 +182,15 @@ export default async function workshopInformation(modalType, user, idWorkshop) {
   imageInput.name = "image";
   imageLabel.appendChild(imageInput);
 
+  imageInput.addEventListener("change", async (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", file);
+
+    const response = await uploadFiles(formData);
+    imageInput.dataset.image = response.id;
+  });
+
   fieldsetOverview.appendChild(startDateLabel);
   fieldsetOverview.appendChild(difficultyLabel);
   fieldsetOverview.appendChild(imageLabel);
@@ -346,12 +356,13 @@ async function sendFormDataWorkshop(modalType, formValuesOverview, user, id) {
   }
 
   newWorkshop["topics"] = topics;
+  newWorkshop["image"] =
+    document.querySelector("#customInputFile").dataset.image;
 
   // Requisição:
   if (modalType === "create") {
     // Criando workshop:
     const id = await createWorkshop(newWorkshop);
-    console.log(newWorkshop);
 
     // atualizar ws criados pelo usuário
     const createdWorkshopsUser = user.created_workshops;
@@ -360,8 +371,6 @@ async function sendFormDataWorkshop(modalType, formValuesOverview, user, id) {
     const userUpdate = updateUser(user.id, user);
   }
   if (modalType === "edit") {
-    // Atualizar workshop:
-    console.log(newWorkshop);
-    await updateWorkshop(id, newWorkshop);
+    await editWorkshop(id, newWorkshop);
   }
 }

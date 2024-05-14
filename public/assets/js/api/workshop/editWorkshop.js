@@ -1,18 +1,18 @@
 import { environment } from "../enviroment.js";
 
-export default async function uploadFiles(data) {
+export default async function editWorkshop(id, data) {
   const host = environment.host;
 
-  console.log(data);
-
   const options = {
-    method: "POST",
-
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
     credentials: "include",
-    body: data,
+    body: JSON.stringify(data),
   };
 
-  const url = `${host}/upload-files/`;
+  const url = `${host}/workshops/${id}`;
 
   try {
     const response = await fetch(url, options);
