@@ -1,3 +1,4 @@
+import { environment } from "../api/enviroment.js";
 import { getUser } from "../api/user/getUser.js";
 
 export default async function overviewWorkshop(contentWorkshop, workshop) {
@@ -16,8 +17,9 @@ export default async function overviewWorkshop(contentWorkshop, workshop) {
   creatorInfoDiv.id = "creator-info-div";
 
   const user = await getUser(workshop.creator_id);
+  console.log(user);
   const creatorImageDiv = document.createElement("div");
-  creatorImageDiv.style.background = `url(${user.image}) no-repeat`;
+  creatorImageDiv.style.background = `url(${environment.image}/static/${user.photo}) no-repeat`;
   creatorImageDiv.style.backgroundSize = "contain"; // Define o tamanho da imagem de fundo
   creatorImageDiv.style.backgroundPosition = "center";
   creatorImageDiv.id = "image-workshop-creator";
@@ -37,7 +39,7 @@ export default async function overviewWorkshop(contentWorkshop, workshop) {
   // Adicionar descrição do criador
   const creatorDescriptionDiv = document.createElement("div");
   const creatorDescriptionParagraph = document.createElement("p");
-  creatorDescriptionParagraph.textContent = user.description;
+  creatorDescriptionParagraph.textContent = user.experience;
   creatorDescriptionDiv.appendChild(creatorDescriptionParagraph);
 
   section2.appendChild(creatorInfoDiv);

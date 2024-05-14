@@ -68,18 +68,17 @@ const urlRoutes = {
     title: "",
     description: "",
   },
+  "/exibir-receita": {
+    path: "/pages/exibir-receita.html",
+  },
 };
 
-const urlRoute = (url, idWorkshoop) => {
-  window.history.pushState(
-    {},
-    "",
-    url + (idWorkshoop ? `/${idWorkshoop}` : "")
-  );
-  urlLocationHandler(idWorkshoop);
+const urlRoute = (url, id) => {
+  window.history.pushState({}, "", url + (id ? `/${id}` : ""));
+  urlLocationHandler(id);
 };
 
-const urlLocationHandler = async (idWorkshoop) => {
+const urlLocationHandler = async (id) => {
   console.log("aaa");
   let location = window.location.pathname;
   if (location.length === 0) {
@@ -87,13 +86,16 @@ const urlLocationHandler = async (idWorkshoop) => {
   }
 
   if (location.includes("show-workshop")) {
-    idWorkshoop = location.split("/")[2];
+    id = location.split("/")[2];
     location = "/show-workshop";
+  } else if (location.includes("exibir-receita")) {
+    id = location.split("/")[2];
+    location = "/exibir-receita";
   }
 
   const route = urlRoutes[location] || urlRoutes[404];
   const html = await fetch(route.path).then((response) => response.text());
-  createTemplate(route.path, html, idWorkshoop);
+  createTemplate(route.path, html, id);
 };
 
 window.addEventListener("popstate", urlLocationHandler);
