@@ -1,17 +1,20 @@
 import { environment } from "../api/enviroment.js";
+import { urlRoute } from "../url-routes.js";
 
 export default function createCardRecipe(data) {
     const templateCard = document.createElement('div');
     templateCard.className = 'card-recipe';
     templateCard.id = data.id;
+    // Abrir página com detalhes da receita
+    templateCard.addEventListener('click', async ()=> {
+        await urlRoute('/exibir-receita', '', data.id)
+    });
 
     const img = document.createElement('img');
     img.className = 'img-card-recipe';
     const host = environment.image;
     const image = data.images[0].image;
     img.src =  `${host}/static/${image}`;
-
-    console.log(data);
 
     const h3 = document.createElement('h3');
     h3.innerText = `${data.title}`;
