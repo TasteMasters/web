@@ -2843,9 +2843,162 @@ input[type="file"]::placeholder {
 }
 
 /* ============== Receitas ================ */
-#revenues-section {
+#recipes-section {
   width: 100vw;
   min-height: 90vh;
   margin-top: 10vh;
   padding: 0 2rem;
+}
+
+#cards-recipes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 75vh;
+  margin: 4rem 0;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card-recipe {
+  width: 30%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: .5s;
+  padding: .4rem;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+.card-recipe:hover {
+  transform: scale(1.05);
+  color: var(--color5);
+}
+
+.img-card-recipe {
+  width: 100%;
+  height: 250px;
+  border-radius: 1rem;
+  padding: 0;
+}
+
+.card-recipe h3 {
+  font-size: 1rem;
+  padding-top: 1rem;
+}
+
+.card-recipe p {
+  font-size: .8rem;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 850px) {
+  .card-recipe {
+    width: 40%;
+  }
+  
+}
+
+@media (max-width: 600px) {
+  #cards-recipes {
+    gap: 2rem;
+  }
+
+  .card-recipe {
+    width: 70%;
+  } 
+}
+
+@media (max-width: 400px) {
+  .card-recipe {
+    width: 100%;
+  } 
+}
+
+/* ============== Exibir Receitas ================ */
+#show-recipe {
+  width: 100vw;
+  min-height: 90vh;
+  margin-top: 10vh;
+  padding: 0 2rem;
+}
+
+#banner-recipe {
+  width: 100vw;
+  height: 550px;
+  margin-left: -2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#div-effect {
+  height: 550px;
+  width: 100vw;
+  position: absolute;
+  z-index: 1;
+  background: rgba(0, 0, 0, .3);
+}
+
+#banner-recipe h2 {
+  font-size: 3rem;
+  position: relative;
+  z-index: 2;
+  color: var(--color7);
+  font-family: var(--font-title);
+}
+
+#banner-recipe p {
+  font-size: 1rem;
+  position: relative;
+  z-index: 2;
+  color: var(--color7);
+}
+
+#banner-recipe span {
+  font-size: 1.3rem;
+}
+
+#details {
+  padding: 2rem;
+}
+
+#details h3 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+#ingredients-recipe{
+  margin-left: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card-ingredient {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#description-recipe {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  text-align: justify;
+}
+
+@media (max-width: 850px) {
+  #banner-recipe h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  #banner-recipe h2 {
+    font-size: 2rem;
+  }
 }

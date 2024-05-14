@@ -8,7 +8,7 @@ import { AuthController } from "./api/auth/auth.controller.js";
 
 const urlBlackList = ["/pages/login.html", "/pages/registrar.html"];
 
-export default async function createTemplate(page, content, idWorkshoop) {
+export default async function createTemplate(page, content, id) {
   const body = document.querySelector("body");
 
   const headerElement = headerLogin(AuthController.isAuthenticated());
@@ -18,7 +18,7 @@ export default async function createTemplate(page, content, idWorkshoop) {
   body.appendChild(mainElement);
   if (!urlBlackList.includes(page)) body.appendChild(footerElement);
 
-  handlePageContent(page, idWorkshoop);
+  handlePageContent(page, id);
   
   //Animations
   if (!urlBlackList.includes(page)) footerAnimation();
