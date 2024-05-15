@@ -51,11 +51,15 @@ export default async function workshopInformation(modalType, user, idWorkshop) {
     for (let i = 0; i < fieldsetOverviewElements.length; i++) {
       const element = fieldsetOverviewElements[i];
       if (element.name) {
-        formValues[element.name] = element.value;
+        if (element.name === "difficulty") {
+          if (element.checked) {
+            formValues[element.name] = element.value;
+          }
+        } else {
+          formValues[element.name] = element.value;
+        }
       }
     }
-
-    formValues["image"] = "mocks/img/image-card.svg";
 
     // Função para enviar os dados
     if (modalType === "create") {
@@ -112,7 +116,8 @@ export default async function workshopInformation(modalType, user, idWorkshop) {
   startDateInput.type = "date";
   startDateInput.name = "start_date";
   if (modalType === "edit") {
-    startDateInput.value = workshop.start_date;
+    console.log(workshop.start_date.split("T")[0]);
+    startDateInput.value = workshop.start_date.split("T")[0];
   }
   startDateLabel.appendChild(startDateInput);
 
@@ -136,6 +141,7 @@ export default async function workshopInformation(modalType, user, idWorkshop) {
     let hardRadio;
 
     const difficulty = workshop.difficulty;
+    console.log(difficulty);
     if (difficulty === "Fácil") {
       easyRadio = await createRadioButton("difficulty", "Fácil", true);
       intermediateRadio = await createRadioButton(
@@ -371,6 +377,7 @@ async function sendFormDataWorkshop(modalType, formValuesOverview, user, id) {
     const userUpdate = updateUser(user.id, user);
   }
   if (modalType === "edit") {
+    console.log(newWorkshop);
     await editWorkshop(id, newWorkshop);
   }
 }

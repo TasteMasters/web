@@ -2,10 +2,8 @@ import buttonCreateWs from "../components/button-ws-created.js";
 import createCardWorkshop from "../components/card-workshop.js";
 import workshopInformation from "../components/workshop-information.js";
 import createSectionMyWorkshop from "../components/my-workshops-section.js";
-import createSectionStartedWorkshop from "../components/started-workshops-section.js";
 import listWorkshops from "../api/workshop/listWorkshops.js";
 import { AuthController } from "../api/auth/auth.controller.js";
-import { getUser } from "../../../mocks/user.js";
 import { urlRoute } from "../url-routes.js";
 import getUserWorkshops from "../api/workshop/getUserWorkshops.js";
 
@@ -19,17 +17,17 @@ export default async function workshop() {
 
   const workshops = await listWorkshops();
 
-  // Workshops started
-  const user = await getUser(1);
-  const startedWorkshops = await user.workshops_started;
+  // // Workshops started
+  // const user = await getUser(1);
+  // const startedWorkshops = await user.workshops_started;
 
-  const showWorkshops = document.getElementById("content-started-workshops");
-  showWorkshops.innerHTML = "";
+  // const showWorkshops = document.getElementById("content-started-workshops");
+  // showWorkshops.innerHTML = "";
 
-  startedWorkshops.forEach(async (idWorkshop) => {
-    const card = await createSectionStartedWorkshop(idWorkshop);
-    showWorkshops.appendChild(card);
-  });
+  // startedWorkshops.forEach(async (idWorkshop) => {
+  //   const card = await createSectionStartedWorkshop(idWorkshop);
+  //   showWorkshops.appendChild(card);
+  // });
 
   // My workshops
   const myWorkshops = await getUserWorkshops();
