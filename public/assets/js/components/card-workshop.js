@@ -6,8 +6,6 @@ export default async function createCardWorkshop(data, user_workshops_started) {
   const templateCard = document.createElement("div");
   templateCard.className = "card-workshop";
 
-  console.log(data);
-
   const img = document.createElement("img");
   img.className = "img-card-workshop";
   const image = data.image;

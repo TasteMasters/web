@@ -32,8 +32,6 @@ export default async function workshop() {
   // My workshops
   const myWorkshops = await getUserWorkshops();
 
-  console.log(myWorkshops);
-
   const sectionWorkshopsCreated = document.getElementById(
     "content-my-workshops"
   );
@@ -58,8 +56,6 @@ export default async function workshop() {
 
   // Cards workshops
   const sectionCards = document.getElementById("show-workshops-cards");
-
-  console.log(workshops);
 
   workshops.forEach(async (element) => {
     const card = await createCardWorkshop(element, user.workshops_started);

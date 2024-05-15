@@ -4,8 +4,6 @@ import accordionTopics from "./accordion-topics.js";
 export default async function contentWorkshop(contentWorkshop, workshop) {
   await accordionIngredients(contentWorkshop, workshop.ingredients);
 
-  console.log(workshop);
-
   const topics = workshop.topics;
   topics.forEach(async (topic) => {
     await accordionTopics(contentWorkshop, topic);

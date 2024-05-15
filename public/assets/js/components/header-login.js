@@ -43,7 +43,6 @@ export default function headerLogin(userLogged) {
     const btnsExit = document.getElementsByClassName("btn-exit");
     for (const element of btnsExit) {
       element.addEventListener("click", () => {
-        console.log("aquii");
         document.cookie =
           "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         urlRoute("/");

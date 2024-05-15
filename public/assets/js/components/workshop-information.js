@@ -116,7 +116,6 @@ export default async function workshopInformation(modalType, user, idWorkshop) {
   startDateInput.type = "date";
   startDateInput.name = "start_date";
   if (modalType === "edit") {
-    console.log(workshop.start_date.split("T")[0]);
     startDateInput.value = workshop.start_date.split("T")[0];
   }
   startDateLabel.appendChild(startDateInput);
@@ -141,7 +140,6 @@ export default async function workshopInformation(modalType, user, idWorkshop) {
     let hardRadio;
 
     const difficulty = workshop.difficulty;
-    console.log(difficulty);
     if (difficulty === "Fácil") {
       easyRadio = await createRadioButton("difficulty", "Fácil", true);
       intermediateRadio = await createRadioButton(
@@ -377,7 +375,6 @@ async function sendFormDataWorkshop(modalType, formValuesOverview, user, id) {
     const userUpdate = updateUser(user.id, user);
   }
   if (modalType === "edit") {
-    console.log(newWorkshop);
     await editWorkshop(id, newWorkshop);
   }
 }

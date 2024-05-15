@@ -17,7 +17,6 @@ export default async function overviewWorkshop(contentWorkshop, workshop) {
   creatorInfoDiv.id = "creator-info-div";
 
   const user = await getUser(workshop.creator_id);
-  console.log(user);
   const creatorImageDiv = document.createElement("div");
   creatorImageDiv.style.background = `url(${environment.image}/static/${user.photo}) no-repeat`;
   creatorImageDiv.style.backgroundSize = "contain"; // Define o tamanho da imagem de fundo

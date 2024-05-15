@@ -79,7 +79,6 @@ const urlRoute = (url, id) => {
 };
 
 const urlLocationHandler = async (id) => {
-  console.log("aaa");
   let location = window.location.pathname;
   if (location.length === 0) {
     location = "/";

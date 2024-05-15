@@ -3,8 +3,6 @@ import { environment } from "../enviroment.js";
 export default async function uploadFiles(data) {
   const host = environment.host;
 
-  console.log(data);
-
   const options = {
     method: "POST",
 

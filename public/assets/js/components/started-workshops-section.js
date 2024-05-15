@@ -4,8 +4,6 @@ import { urlRoute } from "../url-routes.js";
 export default function createSectionStartedWorkshop(id) {
   const data = getWorkshop(id);
 
-  console.log(data);
-
   const div = document.createElement("div");
   div.id = `ws${id}`;
   div.classList.add("workshop-started-card");

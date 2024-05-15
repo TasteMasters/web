@@ -22,7 +22,6 @@ export default function addTopicInputs(container, topicData) {
   topicDurationInput.type = "number";
   topicDurationInput.name = "topicDuration";
   if (topicData !== null && topicData !== undefined) {
-    console.log(topicData.estimated_time);
     topicDurationInput.value = topicData.estimated_time;
   }
   topicDurationLabel.appendChild(topicDurationInput);
