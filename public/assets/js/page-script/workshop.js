@@ -6,6 +6,8 @@ import listWorkshops from "../api/workshop/listWorkshops.js";
 import { AuthController } from "../api/auth/auth.controller.js";
 import { urlRoute } from "../url-routes.js";
 import getUserWorkshops from "../api/workshop/getUserWorkshops.js";
+import { getUserId } from "../api/utils/getUserId.js";
+import { getUser } from "../api/user/getUser.js";
 
 export default async function workshop() {
   const isAuthenticated = AuthController.isAuthenticated();
@@ -18,7 +20,7 @@ export default async function workshop() {
   const workshops = await listWorkshops();
 
   // // Workshops started
-  // const user = await getUser(1);
+  const user = await getUser(getUserId());
   // const startedWorkshops = await user.workshops_started;
 
   // const showWorkshops = document.getElementById("content-started-workshops");
@@ -58,7 +60,7 @@ export default async function workshop() {
   const sectionCards = document.getElementById("show-workshops-cards");
 
   workshops.forEach(async (element) => {
-    const card = await createCardWorkshop(element, user.workshops_started);
+    const card = await createCardWorkshop(element, []);
     sectionCards.appendChild(card);
   });
 }
