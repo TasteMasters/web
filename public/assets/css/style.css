@@ -1764,6 +1764,11 @@ p#direitos-tastemaster {
   border: 1px solid rgba(0, 0, 0, .3);
 }
 
+.input-img-profile {
+  padding: .5rem 1rem;
+  border-radius: 1rem;
+}
+
 #fieldset-overview textarea {
   font-size: .8rem;
   padding: .5rem;
@@ -2342,10 +2347,10 @@ input[type="file"]::placeholder {
     position: relative;
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: 100vw;
     min-height: 75vh;
-    padding: 6% 18%;
-    gap: 10%;
+    padding: 5rem 2rem 2rem 2rem;
+    gap: 2rem;
     box-sizing: border-box;
 }
 
@@ -2361,7 +2366,13 @@ input[type="file"]::placeholder {
     gap: 15px;
 }
 
+#profile-info h1, #profile-info h2 {
+  font-size: 1.1rem;
+  margin-bottom: .5rem;
+}
+
 #profile-container #profile-info{
+  width: 50%;
     gap: 30px;
 }
 
@@ -2383,12 +2394,13 @@ input[type="file"]::placeholder {
 #profile-container #profile-recipes{
     display: flex;
     flex-wrap: wrap;
-    width: 35vw;
+    width: 100%;
     gap: 10px;
 }
 
 #profile-container .recipe{
-    width: calc(50% - 5px);
+    width: 300px;
+    height: 200px;
     aspect-ratio: 16/10;
     object-fit: cover;
     transition: .3s ease-in-out;
@@ -2400,7 +2412,7 @@ input[type="file"]::placeholder {
 }
 
 #profile-container #profile-options{
-    width: 30%;
+    width: fit-content;
 }
 
 #profile-container #option-buttons{
@@ -2409,13 +2421,14 @@ input[type="file"]::placeholder {
 }
 
 #profile-container .edit-button{
+    width: 200px;
+    height: fit-content;
     display: flex;
     gap: 15px;
-    padding: 10px 15px;
-    font-size: 1vw;
+    padding: 1rem 1.5rem;
     font-weight: bold;
     background-color: #F4A261;
-    color: #FFF;
+    color: var(--color7);
     border: none;
     border-radius: 5px;
     transition: .3s ease-in-out;
@@ -2425,6 +2438,10 @@ input[type="file"]::placeholder {
         cursor: pointer;
         filter: brightness(.95);
     }
+}
+
+.edit-button p {
+  width: fit-content;
 }
 
 #profile-container .edit-button img{
@@ -2476,12 +2493,14 @@ input[type="file"]::placeholder {
 }
 
 #profile-container #profile-photo{
-    width: 8vw;
+    width: 130px;
+    height: 130px;
     border: 6px solid #FFF;
     border-radius: 50%;
 }
 
 #profile-container #profile-nav nav{
+    width: fit-content;
     display: flex;
     gap: 20px;
     transform: translateY(75%);
@@ -2489,7 +2508,7 @@ input[type="file"]::placeholder {
 
 #profile-container #profile-nav nav a{
     position: relative;
-    font-size: 1vw;
+    font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
     color: #000;
@@ -2508,6 +2527,51 @@ input[type="file"]::placeholder {
 
 #profile-container #profile-nav nav a:hover::before{
     width: 100%;
+}
+
+@media (max-width: 1300px) {
+  #profile-info {
+    width: 70% !important;
+  }
+}
+
+@media (max-width: 950px) {
+  #profile-content {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .edit-button {
+    width: 250px;
+    margin-top: 1rem;
+  }
+
+  #profile-info {
+    width: 100% !important;
+  }
+
+  .recipe {
+    width: 45% !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .recipe {
+    width: 45% !important;
+  }
+}
+
+@media (max-width: 680px) {
+  #profile-content {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .recipe {
+    width: 70% !important;
+  }
 }
 
 /* ================profile-data============= */
@@ -2541,6 +2605,11 @@ input[type="file"]::placeholder {
     width: 60%;
 }
 
+#div-button-submit {
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .submit-data-form{
     min-width: 250px;
     max-height: 55px;
@@ -2548,7 +2617,7 @@ input[type="file"]::placeholder {
     padding: 15px 50px;
     background-color: #E76F51;
     border: none;
-    font-size: .9vw;
+    font-size: 1rem;
     color: #FFF;
     font-weight: bold;
     transition: .15s ease-in-out;
@@ -2571,7 +2640,7 @@ input[type="file"]::placeholder {
     padding: 15px 20px;
     background-color: #EEEEEE;
     border: none;
-    font-size: .9vw;
+    font-size: 1rem;
 }
 
 #double-input-container{
@@ -2581,6 +2650,49 @@ input[type="file"]::placeholder {
 #password-form{
     display: flex;
     gap: 1%;
+}
+
+#inputs-password {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 1200px) {
+  #password-form {
+    flex-direction: column;
+  }
+
+  #alter-password {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 1000px) {
+  #data-form {
+    flex-direction: column;
+  }
+
+  #form-inputs {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1000px) {
+  #inputs-password {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .input-container {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 850px) {
+  #data-form {
+    margin-top: 2rem;
+  }
 }
 
 /* =============challenges=============== */
