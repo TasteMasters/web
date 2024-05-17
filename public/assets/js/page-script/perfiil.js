@@ -2,6 +2,7 @@ import { environment } from "../api/enviroment.js";
 import { getUser } from "../api/user/getUser.js";
 import { getUserId } from "../api/utils/getUserId.js";
 import getUserWorkshops from "../api/workshop/getUserWorkshops.js";
+import imageWorkshopsCreated from "../components/ImageWorkshopsCreated.js";
 import imageSocialMedia from "../components/image-social-media.js";
 import editImageProfile from "../components/modal-edit-img-profile.js";
 
@@ -25,37 +26,30 @@ export default async function perfil() {
     descriptionElement.textContent = 'Um pintor aprendendo a arte da culinária aos poucos 😍';
 
     // Ícones de redes socias
-    const links = {
-        pinterest: 'https://br.pinterest.com/',
-        instagram: 'https://www.instagram.com/?hl=pt_BR',
-        linkedin: 'https://www.linkedin.com'
+    if (user.pinterest) {
+        await imageSocialMedia('pinterest', user.pinterest);
     }
-
-    if (links.pinterest) {
-        await imageSocialMedia('pinterest', links.pinterest);
+    if (user.instagram) {
+        await imageSocialMedia('instagram', user.instagram);
     }
-    if (links.instagram) {
-        await imageSocialMedia('instagram', links.instagram);
-    }
-    if (links.linkedin) {
-        await imageSocialMedia('linkedin', links.linkedin);
+    if (user.linkedin) {
+        await imageSocialMedia('linkedin', user.linkedin);
     }
 
     // Botão editar foto de perfil
     const btn = document.getElementById('button-red-bg');
     btn.addEventListener('click', async ()=> {
-        console.log('abcc');
         const modal = await editImageProfile(id_user);
         const body = document.querySelector('body');
         body.appendChild(modal);
     });
 
     // Workshops criados
-    /* 
     const workshopsCreated = await getUserWorkshops();
+    console.log(workshopsCreated);
     if (workshopsCreated) {
         workshopsCreated.forEach(element => {
-            createImageWorkshops(element.photo);
+            imageWorkshopsCreated(element.image, element.id);
         });
     }
     if (workshopsCreated[0] === undefined) {
@@ -65,5 +59,4 @@ export default async function perfil() {
         p.innerText = 'Você ainda não criou um workshop';
         div.appendChild(p);
     } 
-    */
 }
