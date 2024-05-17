@@ -19,6 +19,7 @@ export default function headerLogin(userLogged) {
                     </li>
                     <li class="navigation-desktop"><a href="/workshops">Workshops</a></li>
                     <li class="navigation-desktop"><a href="/receitas">Receitas</a></li>
+                    <li class="navigation-desktop"><a href="/perfil">Perfil</a></li>
                     <li class="navigation-desktop"><button class="btn-exit">
                         <img src="/assets/img/icon-close-modal.svg" id="img-logout" />
                     </button></li>
@@ -28,6 +29,7 @@ export default function headerLogin(userLogged) {
                 <ul>
                     <li><a href="/workshops" class="navigate">Workshops</a></li>
                     <li><a href="/receitas" class="navigate">Receitas</a></li>
+                    <li><a href="/perfil" class="navigate">Perfil</a></li>
                     <li><button class="navigate btn-exit">Sair</button></li>
                 </ul>
             </div>
